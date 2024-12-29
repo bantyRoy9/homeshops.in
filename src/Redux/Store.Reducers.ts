@@ -1,14 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-const initialState={
+type initialStateTy ={
+    
+}
+const initialState:initialStateTy={
 
 }
-const storeDetailSlice = createSlice({
+export const storeDetailSlice = createSlice({
+name:'storeDetails',
 initialState,
-name:'',
 reducers:{
     update:()=>{
 
     }
 }
 });
+export const {update} = storeDetailSlice.actions;
+export default storeDetailSlice.reducer;
