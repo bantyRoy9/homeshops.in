@@ -2,13 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Reset default body styles */
 body {
-  margin: 0;
-  line-height: 1.15;
+  @apply m-0 leading-[1.15];
 }
-.main-container{
-  @apply flex justify-center flex-col items-center relative h-full bg-white
+.home-container{
+  @apply max-w-[1260px] m-auto
 }
-.items-container{
-  @apply max-w-[3000px] justify-center items-center flex xl:max-w-[3000px]
+/* Main container styling */
+.main-container {
+  @apply flex flex-col relative h-full bg-white py-3;
+}
+
+/* Items container styling */
+.items-container {
+  @apply max-w-[3000px] flex justify-center items-center xl:max-w-[3000px] overflow-x-hidden;
+}
+
+/* Image Grid Container */
+.image-grid-container {
+  @apply max-w-[1280px] mx-auto px-4 bg-transparent overflow-x-hidden;
+}
+
+.image-grid {
+  @apply grid gap-4 grid-cols-[repeat(auto-fill,_minmax(150px,_1fr))];
+}
+
+/* Horizontal Image Slider */
+.horizontal-image-slider {
+  @apply flex gap-4 overflow-x-auto ;
+}
+
+.horizontal-image-slider::-webkit-scrollbar {
+  @apply hidden;
+}
+
+/* Horizontal Card List */
+.horizontal-card-list {
+  @apply flex gap-4 overflow-x-auto pb-2 ;
+}
+
+.horizontal-card-list::-webkit-scrollbar {
+  @apply hidden;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white border border-gray-300 rounded-lg w-[200px] flex-shrink-0 shadow-md transition-transform duration-200;
+}
+
+.card:hover {
+  @apply transform translate-y-[-5px];
+}
+
+/* Section styling */
+.section {
+  @apply mt-6 px-4;
+}
+
+.section-title {
+  @apply text-xl font-bold mb-4 pl-2 text-gray-800;
+}
+
+/* Banner container */
+.banner-container {
+  @apply mb-6 w-full max-w-[1280px] overflow-x-hidden;
+}
+
+/* Image styles */
+img {
+  @apply max-w-full h-auto block;
 }

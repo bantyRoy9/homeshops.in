@@ -1,16 +1,16 @@
 import React from 'react';
-import Navbar from './Components/Header';
-import Banner from './Components/Banner';
-import Categories from './Components/Categories';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './Screens/Home';
+import DefaultContainer from './DefaultContainer';
 
-const App: React.FC = () => {
-  return (
-    <div className="font-sans">
-      <Navbar />
-      <Banner />
-      <Categories />
-    </div>
-  );
-};
+const App: React.FC = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route element={<DefaultContainer />}>
+        <Route path='/' element={<Home />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
+);
 
 export default App;

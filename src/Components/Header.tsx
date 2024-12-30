@@ -2,7 +2,7 @@ import React from 'react';
 
 const Navbar: React.FC = () => {
     return (
-        <div className="header_container">
+        <div className="header_container sticky top-0 z-10">
             <header className="flex border-b-[1px] h-[86px] bg-white z-10 flex-nowrap w-full relative">
                 <div className="flex items-center w-auto">
                     <a className="flex h-[86px] w-[178px] items-center justify-center" href="/">

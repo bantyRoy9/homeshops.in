@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-type initialStateTy ={
-    
+import buildEPCExtraReducers  from "./Store.Builders";
+export type initialStateTy ={
+    store:any
 }
 const initialState:initialStateTy={
-
+store:{}
 }
 export const storeDetailSlice = createSlice({
 name:'storeDetails',
@@ -12,7 +13,8 @@ reducers:{
     update:()=>{
 
     }
-}
+},
+extraReducers:buildEPCExtraReducers
 });
 export const {update} = storeDetailSlice.actions;
 export default storeDetailSlice.reducer;
