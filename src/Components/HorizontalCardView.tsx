@@ -3,11 +3,12 @@ import React from "react";
 const HorizontalCardList = ({ data }:any) => {
   return (
     <div className="horizontal-card-list-container">
-      <h2 className="card-list-title">{data[0].name}</h2>
       <div className="horizontal-card-list">
         {data.map((item:any) => (
-          <div key={item[0].product_id} className="card">
-            <img src={item[0].image_url} alt={item[0].name} className="card-image"/>
+          <div key={item[0].product_id} className="card"> 
+          <div className="flex justify-center">
+            <img src={item[0].image_url} alt={item[0].name} className="card-image" width={140}/>
+            </div>
             <div className="card-details">
               <h3 className="card-title">{item[0].name}</h3>
               <p className="card-brand">Brand: {item[0].brand}</p>

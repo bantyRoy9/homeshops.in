@@ -14,7 +14,8 @@ function Home() {
   useEffect(() => {
     dispatch(getCardDetails());
   }, [dispatch]);
-
+  console.log(store.objects && store.objects.length && store.objects[3]);
+  
   return (
     <div className="home-container">
       {store.objects && store.objects.length && 
@@ -23,7 +24,7 @@ function Home() {
             idx === 1 ? <div className="main-container"><HorizontalImageSlider data={el} /></div> :
             idx === 2 ? <ImageGrid data={el.data} /> :                                    
             <div className="section" key={idx}>
-            <h3 className="section-title">{el.name}</h3>
+            <h3 className="section-title">{el.header_config.title}</h3>
             <HorizontalCardList data={el.objects[0].data.products} />
             </div>          
             )

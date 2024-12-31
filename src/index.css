@@ -25,7 +25,7 @@ body {
 }
 
 .image-grid {
-  @apply grid gap-4 grid-cols-[repeat(auto-fill,_minmax(150px,_1fr))];
+  @apply grid gap-4 grid-cols-[repeat(auto-fill,_minmax(100px,_1fr))];
 }
 
 /* Horizontal Image Slider */
@@ -48,11 +48,7 @@ body {
 
 /* Card styles */
 .card {
-  @apply bg-white border border-gray-300 rounded-lg w-[200px] flex-shrink-0 shadow-md transition-transform duration-200;
-}
-
-.card:hover {
-  @apply transform translate-y-[-5px];
+  @apply bg-white border border-gray-300 rounded w-[200px] flex-shrink-0 shadow-md transition-transform duration-200;
 }
 
 /* Section styling */
@@ -61,7 +57,11 @@ body {
 }
 
 .section-title {
-  @apply text-xl font-bold mb-4 pl-2 text-gray-800;
+  @apply text-xl font-bold mb-4 text-gray-800;
+  color: rgb(28, 28, 28);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
 }
 
 /* Banner container */
