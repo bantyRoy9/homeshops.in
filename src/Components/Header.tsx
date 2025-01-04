@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-1 h-full">
+                <div className="flex flex-1 basis-0 h-full">
                     <div className='relative flex-1 m-auto flex items-center align-content-center'>
                         <i className="absolute left-4 top-4 fa-solid fa-magnifying-glass text-black-400 w-[20px] h-[20px]"></i>
                         <input className='w-full px-3 pl-10 h-[46px] flex gap-2 border-[1px] border-neutral-200 rounded-[12px] bg-neutral-100 text-gray-500 outline-none shadow-none' type='text' placeholder='Search Items' name='serach'/>
