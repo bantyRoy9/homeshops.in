@@ -1,6 +1,7 @@
 import Navbar from './../Components/Header'
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import Footer from './Footer'
 
 type Props = {}
 
@@ -9,6 +10,7 @@ const DefaultContainer = (props: Props) => {
     <div>
         <Navbar/>
         <Outlet/>
+        <Footer/>
     </div>
   )
 }
