@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from './Modal';
+import Input from './Input';
+import Drawer from './Drawer';
 
 const Navbar: React.FC = () => {
-    return (
+    const [login,setLogin] = useState(false);
+    const handleClick =(e:any) =>{
+        e.preventDefault()
+        handleModal()
+    }
+    const handleModal = () => setLogin(prev=>!prev);
+    const LoginHandler = () => {
+        return <>
+        <Input label="mobile no"/>
+        </>;
+    };
+    const [isOpen,setIsOpen]=useState(false);
+    return (<>
+        <Drawer position={"right"} isOpen={isOpen} onClose={() => setIsOpen(false)}><></></Drawer>
+        {login && <Modal btnTitle="" children={<LoginHandler/>} closeModal={handleModal} headerTitle={""} modalSize="lg" onSubmit={()=>{}} />}
         <div className="header_container sticky top-0 z-20">
             <header className="flex border-b-[1px] h-[86px] bg-white z-10 flex-nowrap w-full relative">
                 <div className="flex items-center w-auto">
@@ -29,19 +46,20 @@ const Navbar: React.FC = () => {
                     </div>
                 </div>
                 <div className="flex gap-5 justify-center">
-                    <div className="w-[152px] h-full flex items-center justify-center text-[18px] font-normal cursor-pointer hover:bg-neutral-50 transition-colors duration-500">Login</div>
+                    <button onClick={handleClick} className="w-[152px] h-full flex items-center justify-center text-[18px] font-normal cursor-pointer hover:bg-neutral-50 transition-colors duration-500">Login</button>
                     <div className="flex items-center">
-                        <div className="flex bg-green-700 rounded-lg text-white px-4 py-3 items-center gap-2 mr-10">
+                        <button onClick={()=>setIsOpen(true)} className="flex bg-green-700 rounded-lg text-white px-4 py-3 items-center gap-2 mr-10">
                             <i className="fa-solid fa-cart-shopping text-[20px]"></i>
                             <div>
                                 <div className="text-[14px] font-extrabold">7 items</div>
                                 <div className="text-[14px] font-extrabold"> ₹100</div>
                             </div>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </header>
         </div>
+        </>
     );
 };
 
