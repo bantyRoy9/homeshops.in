@@ -993,4 +993,29 @@ img {
   overflow: visible !important;
  }
 
- 
+ .modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  bottom: 0px;
+  left: 0px;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  z-index: 10001;
+  overflow-y: auto;
+  animation: overlayFadeIn 400ms ease;
+}
+
+@keyframes overlayFadeIn{
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+    display: none;
+}
+1% {
+    background-color: rgba(0, 0, 0, 0.1);
+    display: block;
+}
+100% {
+    background-color: rgba(0, 0, 0, 0.7);
+    display: block;
+}
+}

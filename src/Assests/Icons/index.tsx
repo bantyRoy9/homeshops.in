@@ -134,6 +134,30 @@ export const IconDownArrow = () => {
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" className="size-5 fill-gray-700 underline"><path d="M480-357.85 253.85-584 296-626.15l184 184 184-184L706.15-584 480-357.85Z"/></svg>
     )
 }
+  export const IconUpArrow = () => {
+    return (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" className="size-5 fill-gray-700">
+        <path d="M480-602.15 253.85-376 296-333.85l184-184 184 184L706.15-376 480-602.15Z" />
+      </svg>
+    );
+  };
+
+  export const IconLeftArrow = () => {
+    return (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" className="size-5 fill-gray-700">
+        <path d="M357.85-480 584-253.85 626.15-296l-184-184 184-184L584-706.15 357.85-480Z" />
+      </svg>
+    );
+  };
+
+  export const IconRightArrow = () => {
+    return (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" className="size-5 fill-white">
+        <path d="M602.15-480 376-253.85 333.85-296l184-184-184-184L376-706.15 602.15-480Z" />
+      </svg>
+    );
+  };
+  
 export const IconCheck = () => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" className="w-6 h-6 fill-green-500 mr-2"><path d="M382-221.91 135.91-468l75.66-75.65L382-373.22l366.43-366.43L824.09-664 382-221.91Z"/></svg>

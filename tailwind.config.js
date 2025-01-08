@@ -10,6 +10,18 @@ module.exports = {
         colors: {
           'custom-primary-dark': '#123456', // Replace with your desired color value
           'custom-primary-default': '#123456',
+          'primary-heading-md': '#1a202c',
+          'primary-heading-sm': '#1a202c',
+        },
+        fontWeight: {
+          'heading-bold': '700', // Define custom font weight
+        },
+        fontSize: {
+          'primary-heading-lg': ['2rem', { lineHeight: '3rem' }], // Example: 40px font size with 48px line-height
+          'primary-heading-md': ['0.89rem', { lineHeight: '1.4rem' }], // Example: 40px font size with 48px line-height
+          'primary-heading-sm': ['0.73rem', { lineHeight: '.9rem' }], // Example: 40px font size with 48px line-height
+          'secondary-heading': ['1.75rem', { lineHeight: '2.25rem' }], // Example: 28px font size with 36px line-height
+          'custom-small': ['0.875rem', { lineHeight: '1.25rem' }], // Example: 14px font size with 20px line-height
         },
       },
     },
