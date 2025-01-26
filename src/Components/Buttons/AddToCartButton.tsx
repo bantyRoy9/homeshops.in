@@ -1,28 +1,22 @@
-import React, { useState } from 'react';
-
-const AddToCartButton: React.FC = () => {
-  const [count, setCount] = useState(0);
-
-  const increment = () => setCount(count + 1);
-  const decrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  };
-
+import React, { memo } from 'react';
+interface IaddToCard{
+  itemCount:number,
+  handleClick:(item:-1|1)=>void
+}
+const AddToCartButton: React.FC<IaddToCard> = ({handleClick,itemCount}) => {
   return (
     <div className="flex items-center space-x-4">
-      {count > 0 ? (
+      {itemCount > 0 ? (
         <div className='bg-green-700 flex gap-1 items-center rounded-md cursor-pointer'>
-          <button className="p-2 text-gray-200" onClick={decrement}>-</button>
-          <span className="text-sm text-white">{count}</span>
-          <button className="p-2 text-gray-200 rounded" onClick={increment}>+</button>
+          <button className="p-2 text-gray-200" onClick={()=>handleClick(-1)}>-</button>
+          <span className="text-sm text-white">{itemCount}</span>
+          <button className="p-2 text-gray-200 rounded" onClick={()=>handleClick(1)}>+</button>
         </div>
       ) : (
-        <button className="bg-green-700 text-white rounded px-4 py-2 text-sm" onClick={increment}>Add</button>
+        <button className="card-button" onClick={()=>handleClick(1)}>Add</button>
       )}
     </div>
   );
 };
 
-export default AddToCartButton;
+export default memo(AddToCartButton);

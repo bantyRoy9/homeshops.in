@@ -14,7 +14,6 @@ function Home() {
   useEffect(() => {
     dispatch(getCardDetails());
   }, [dispatch]);
-  console.log(store.objects && store.objects.length && store.objects[3]);
   
   return (
     <div className="home-container">

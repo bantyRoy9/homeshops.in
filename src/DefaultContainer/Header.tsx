@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AddToCardDrawer, Login } from '../Components/ChildComponents';
 import { Drawer, Modal } from '../Components';
+import { useAppSelector } from '../Redux/Store';
 
 const Navbar: React.FC = () => {
     const [login, setLogin] = useState(false);
@@ -10,6 +11,7 @@ const Navbar: React.FC = () => {
     }
     const handleModal = () => setLogin(prev => !prev);
     const [isOpen, setIsOpen] = useState(false);
+    const {addtocard}=useAppSelector(state=>state.store)
     return (<>
         <Drawer headerName='My Cart' position={"right"} isOpen={isOpen} onClose={() => setIsOpen(false)} children={<AddToCardDrawer/>}/>
         {login && <Modal btnTitle="" children={<Login />} closeModal={handleModal} headerTitle={""} modalSize="lg" onSubmit={() => { }} />}
@@ -43,11 +45,11 @@ const Navbar: React.FC = () => {
                     <button onClick={handleClick} className="w-[152px] h-full flex items-center justify-center text-[18px] font-normal cursor-pointer hover:bg-neutral-50 transition-colors duration-500">Login</button>
                     <div className="flex items-center">
                         <button onClick={() => setIsOpen(true)} className="flex bg-green-700 rounded-lg text-white px-4 py-3 items-center gap-2 mr-10">
-                            <i className="fa-solid fa-cart-shopping text-[20px]"></i>
+                            {addtocard.length ? <><i className="fa-solid fa-cart-shopping text-[20px]"></i>
                             <div>
                                 <div className="text-[14px] font-extrabold">7 items</div>
                                 <div className="text-[14px] font-extrabold"> ₹100</div>
-                            </div>
+                            </div></>:<><i className="fa-solid fa-cart-shopping text-[20px]"></i><div>My Cart</div></>}
                         </button>
                     </div>
                 </div>

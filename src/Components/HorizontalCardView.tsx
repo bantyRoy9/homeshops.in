@@ -1,10 +1,12 @@
 import React, { useRef, useState } from "react";
+import AddToCartButton from "./Buttons/AddToCartButton";
 
 const HorizontalCardList = ({ data }: any) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(true);
-
+const [count, setCount] = useState(0);
+    const handleClick = (count:1|-1) => setCount(prev=>prev + count);
   const handleScroll = () => {
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
@@ -39,7 +41,8 @@ const HorizontalCardList = ({ data }: any) => {
                   <p className="card-unit">{item[0].unit}</p> 
               <div className="card-footer">
                 <p className="card-price">₹{item[0].price}</p>
-                <button className="card-button">ADD</button>
+                {/* <button className="card-button">ADD</button> */}
+                <AddToCartButton handleClick={handleClick} itemCount={count}/>
                 {/* {item[0].offer && <p className="card-offer">{item[0].offer}</p>} */}
               </div>
             </div>

@@ -1,11 +1,15 @@
+import { useAppSelector } from '../../Redux/Store'
 import { IconRightArrow } from '../../Assests/Icons'
 import AddToCartButton from '../Buttons/AddToCartButton'
-import React from 'react'
+import React, { useState } from 'react'
 
 type Props = {}
 
 const AddToCardDrawer = (props: Props) => {
-    return (
+    const {addtocard} = useAppSelector(state=>state.store);
+    const [count, setCount] = useState(0);
+    const handleClick = (count:1|-1) => setCount(prev=>prev + count);
+    return (addtocard.length>0?
         <div className='m-3 flex flex-col gap-4' >
             <div className='flex flex-col bg-white rounded-lg p-3 gap-5'>
                 <div className='flex gap-3'>
@@ -27,7 +31,7 @@ const AddToCardDrawer = (props: Props) => {
                         <span className='text-primary-heading-sm font-semibold'>₹34</span>
                     </div>
                     <div>
-                        <AddToCartButton />
+                        <AddToCartButton handleClick={handleClick} itemCount={count}/>
                     </div>
                 </div>
             </div>
@@ -49,7 +53,7 @@ const AddToCardDrawer = (props: Props) => {
                     <span className='text-white flex text-primary-heading-md'>Login to proceed <IconRightArrow /></span>
                 </button>
             </div>
-        </div >
+        </div >:<></>
     )
 }
 
