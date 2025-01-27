@@ -21,19 +21,21 @@ const AddToCardDrawer = (props: Props) => {
                         <div className='text-primary-heading-sm font-light mt-1'>Shipment of 12 item</div>
                     </div>
                 </div>
-                <div className='flex gap-x-3 items-center'>
-                    <div className='w-16 h-16 border border-neutral-100 rounded-lg'>
-                        <img alt="Amul Gold Full Cream Fresh Milk" src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=135/app/assets/products/sliding_images/jpeg/1c0db977-31ab-4d8e-abf3-d42e4a4b4632.jpg?ts=1706182142" loading="lazy" />
+                {Object.keys(addtocard).map(el=>(
+                    <div className='flex gap-x-3 items-center'>
+                        <div className='w-16 h-16 border border-neutral-100 rounded-lg'>
+                            <img alt="Amul Gold Full Cream Fresh Milk" src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=135/app/assets/products/sliding_images/jpeg/1c0db977-31ab-4d8e-abf3-d42e4a4b4632.jpg?ts=1706182142" loading="lazy" />
+                        </div>
+                        <div className='flex flex-col justify-between'>
+                            <span className='text-primary-heading-sm font-light w-[70%] line-clamp-2'>Amul Gold Full Cream Fresh Milk</span>
+                            <span className='text-primary-heading-sm font-light my-1'>500 ml</span>
+                            <span className='text-primary-heading-sm font-semibold'>₹34</span>
+                        </div>
+                        <div>
+                            <AddToCartButton handleClick={handleClick} itemCount={count}/>
+                        </div>
                     </div>
-                    <div className='flex flex-col justify-between'>
-                        <span className='text-primary-heading-sm font-light w-[70%] line-clamp-2'>Amul Gold Full Cream Fresh Milk</span>
-                        <span className='text-primary-heading-sm font-light my-1'>500 ml</span>
-                        <span className='text-primary-heading-sm font-semibold'>₹34</span>
-                    </div>
-                    <div>
-                        <AddToCartButton handleClick={handleClick} itemCount={count}/>
-                    </div>
-                </div>
+                ))}
             </div>
             {/* Billing details */}
             <div className='flex flex-col bg-white rounded-lg p-3 gap-5'>

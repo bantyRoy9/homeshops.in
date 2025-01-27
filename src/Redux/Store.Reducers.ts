@@ -2,26 +2,27 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import buildEPCExtraReducers  from "./Store.Builders";
 export type initialStateTy ={
     store:any,
-    addtocard:any[]
+    addtocard:any
 }
 const initialState:initialStateTy={
 store:{},
-addtocard:[]
+addtocard:{}
 }
 export const storeDetailSlice = createSlice({
 name:'storeDetails',
 initialState,
 reducers:{
-    addtocard:(state,{payload}:PayloadAction<{item:any,ind?:number}>)=>{
-        if(payload.ind){
-            
+    updateaddtocard:({addtocard},{payload}:PayloadAction<{item:any,ind?:number}>)=>{
+        const product_id = payload.item[0].product_id;
+        if(!addtocard[product_id]){
+            addtocard[product_id] = [payload.item]
         }else{
-            state.addtocard=[...state.addtocard,payload]
+            addtocard[product_id].push(payload.item)
         }
     },
 
 },
 extraReducers:buildEPCExtraReducers
 });
-export const {addtocard} = storeDetailSlice.actions;
+export const {updateaddtocard} = storeDetailSlice.actions;
 export default storeDetailSlice.reducer;

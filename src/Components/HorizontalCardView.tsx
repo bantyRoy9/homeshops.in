@@ -1,12 +1,17 @@
 import React, { useRef, useState } from "react";
 import AddToCartButton from "./Buttons/AddToCartButton";
+import { useAppDispatch, useAppSelector } from "../Redux/Store";
+import { updateaddtocard } from "../Redux/Store.Reducers";
 
 const HorizontalCardList = ({ data }: any) => {
+  const {addtocard} = useAppSelector(state=>state.store);
+  const dispatch = useAppDispatch();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(true);
-const [count, setCount] = useState(0);
-    const handleClick = (count:1|-1) => setCount(prev=>prev + count);
+    const handleClick = (count:1|-1,item:string) => {
+      dispatch(updateaddtocard({item}));
+    };
   const handleScroll = () => {
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
@@ -42,7 +47,7 @@ const [count, setCount] = useState(0);
               <div className="card-footer">
                 <p className="card-price">₹{item[0].price}</p>
                 {/* <button className="card-button">ADD</button> */}
-                <AddToCartButton handleClick={handleClick} itemCount={count}/>
+                <AddToCartButton handleClick={(type)=>handleClick(type,item)} itemCount={addtocard[item[0].product_id]?.length??0}/>
                 {/* {item[0].offer && <p className="card-offer">{item[0].offer}</p>} */}
               </div>
             </div>

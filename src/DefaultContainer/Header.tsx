@@ -11,7 +11,18 @@ const Navbar: React.FC = () => {
     }
     const handleModal = () => setLogin(prev => !prev);
     const [isOpen, setIsOpen] = useState(false);
-    const {addtocard}=useAppSelector(state=>state.store)
+    const {addtocard}=useAppSelector(state=>state.store);
+       
+    // Function to calculate total MRP
+const calculateTotalMRP = (products:any[]) => {
+    let totalMRP = 0 as number;
+    for (const productId in products) {
+        totalMRP += products[productId].reduce((total:number,group:any[]) => total + parseFloat(group[0].mrp),0);
+    }
+    return totalMRP;
+  };
+  const totalMRP = calculateTotalMRP(addtocard);
+   
     return (<>
         <Drawer headerName='My Cart' position={"right"} isOpen={isOpen} onClose={() => setIsOpen(false)} children={<AddToCardDrawer/>}/>
         {login && <Modal btnTitle="" children={<Login />} closeModal={handleModal} headerTitle={""} modalSize="lg" onSubmit={() => { }} />}
@@ -45,10 +56,10 @@ const Navbar: React.FC = () => {
                     <button onClick={handleClick} className="w-[152px] h-full flex items-center justify-center text-[18px] font-normal cursor-pointer hover:bg-neutral-50 transition-colors duration-500">Login</button>
                     <div className="flex items-center">
                         <button onClick={() => setIsOpen(true)} className="flex bg-green-700 rounded-lg text-white px-4 py-3 items-center gap-2 mr-10">
-                            {addtocard.length ? <><i className="fa-solid fa-cart-shopping text-[20px]"></i>
+                            {Object.keys(addtocard).length ? <><i className="fa-solid fa-cart-shopping text-[20px]"></i>
                             <div>
-                                <div className="text-[14px] font-extrabold">7 items</div>
-                                <div className="text-[14px] font-extrabold"> ₹100</div>
+                                <div className="text-[14px] font-extrabold">{Object.values(addtocard).flat().length} items</div>
+                                <div className="text-[14px] font-extrabold"> ₹{totalMRP}</div>
                             </div></>:<><i className="fa-solid fa-cart-shopping text-[20px]"></i><div>My Cart</div></>}
                         </button>
                     </div>
