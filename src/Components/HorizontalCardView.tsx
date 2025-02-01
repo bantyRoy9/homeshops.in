@@ -1,17 +1,12 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { useAddToCart } from "./../Utils/customHooks/useAddToCart";
 import AddToCartButton from "./Buttons/AddToCartButton";
-import { useAppDispatch, useAppSelector } from "../Redux/Store";
-import { updateaddtocard } from "../Redux/Store.Reducers";
 
-const HorizontalCardList = ({ data }: any) => {
-  const {addtocard} = useAppSelector(state=>state.store);
-  const dispatch = useAppDispatch();
+const HorizontalCardList = ({ products }: any) => {
+  const {addtocard,addProduct} = useAddToCart();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(true);
-    const handleClick = (count:1|-1,item:string) => {
-      dispatch(updateaddtocard({item}));
-    };
   const handleScroll = () => {
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
@@ -19,7 +14,6 @@ const HorizontalCardList = ({ data }: any) => {
       setShowRight(scrollLeft + clientWidth < scrollWidth);
     }
   };
-
   const scrollLeft = () => {
     scrollRef.current?.scrollBy({ left: -800, behavior: 'smooth' });
   };
@@ -30,25 +24,23 @@ const HorizontalCardList = ({ data }: any) => {
   return (
       <div className="horizontal-card-list" ref={scrollRef} onScroll={handleScroll}>
          {showLeft && <button onClick={scrollLeft} className="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-2 shadow-md rounded-full z-10 hover:bg-gray-100"><i className="fa-solid fa-angle-left"></i></button>}
-        {data.map((item: any) => (
-          <div key={item[0].product_id} className="card">
+        {products.map((product: any) => (
+          <div key={product[0].product_id} className="card">
             <div className="card-content">
             <div>
-              <img src={item[0].image_url} alt={item[0].name} className="card-image" width={140} />
+              <img src={product[0].image_url} alt={product[0].name} className="card-image" width={140} />
             </div>
             <div className="card-details">
               <div className="card-eta">
-                <p>{item[0].eta_tag.text.toUpperCase()}</p>
+                <p>{product[0].eta_tag.text.toUpperCase()}</p>
               </div>
               <div className="card-titles">
-                  <h3 className="card-title">{item[0].name}</h3>
+                  <h3 className="card-title">{product[0].name}</h3>
               </div>
-                  <p className="card-unit">{item[0].unit}</p> 
+                  <p className="card-unit">{product[0].unit}</p> 
               <div className="card-footer">
-                <p className="card-price">₹{item[0].price}</p>
-                {/* <button className="card-button">ADD</button> */}
-                <AddToCartButton handleClick={(type)=>handleClick(type,item)} itemCount={addtocard[item[0].product_id]?.length??0}/>
-                {/* {item[0].offer && <p className="card-offer">{item[0].offer}</p>} */}
+                <p className="card-price">₹{product[0].price}</p>
+                <AddToCartButton handleClick={(type)=>addProduct(type,product[0])} itemCount={addtocard[product[0].product_id]?.length??0}/>
               </div>
             </div>
             </div>

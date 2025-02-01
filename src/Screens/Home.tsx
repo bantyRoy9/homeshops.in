@@ -24,7 +24,7 @@ function Home() {
             idx === 2 ? <ImageGrid data={el.data} /> :                                    
             <div className="section relative" key={idx}>
             <h3 className="section-title">{el.header_config.title}</h3>
-            <HorizontalCardList data={el.objects[0].data.products} />
+            <HorizontalCardList products={el.objects[0].data.products} />
             </div>          
             )
         }
