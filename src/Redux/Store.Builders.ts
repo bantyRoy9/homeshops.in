@@ -5,13 +5,13 @@ import { initialStateTy } from "./Store.Reducers";
 const buildEPCExtraReducers = (builder: ActionReducerMapBuilder<initialStateTy>) => {
     builder
         .addCase(getCardDetails.fulfilled, (state, { payload }: PayloadAction<any[]>) => {
-            state.store = payload;
+            state.products = payload;
         })
         .addCase(getCardDetails.pending, (state) => {
-            state.store = [];
+            state.products = [];
         })
         .addCase(getCardDetails.rejected, (state) => {
-            state.store = [];
+            state.products = [];
         })
     };
 export default buildEPCExtraReducers

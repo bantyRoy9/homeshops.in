@@ -1019,3 +1019,6 @@ img {
     display: block;
 }
 }
+body:has(.modal-overlay) {
+  overflow: hidden;
+}

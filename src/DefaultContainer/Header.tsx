@@ -6,7 +6,7 @@ import { useAddToCart } from '../Utils/customHooks/useAddToCart';
 
 const Navbar: React.FC = () => {
     const [login, setLogin] = useState(false);
-    const {addtocard,calculateTotalMRP} = useAddToCart()
+    const {addtocard,calculateTotalMRP,totalProduct} = useAddToCart()
     const handleClick = (e: any) => {
         e.preventDefault()
         handleModal()
@@ -58,9 +58,9 @@ const Navbar: React.FC = () => {
                     <button onClick={handleClick} className="w-[152px] h-full flex items-center justify-center text-[18px] font-normal cursor-pointer hover:bg-neutral-50 transition-colors duration-500">Login</button>
                     <div className="flex items-center">
                         <button onClick={() => setIsOpen(true)} className="flex bg-green-700 rounded-lg text-white px-4 py-3 items-center gap-2 mr-10">
-                            {Object.keys(addtocard).length ? <><i className="fa-solid fa-cart-shopping text-[20px]"></i>
+                            {(addtocard && Object.keys(addtocard).length) ? <><i className="fa-solid fa-cart-shopping text-[20px]"></i>
                             <div>
-                                <div className="text-[14px] font-extrabold">{Object.values(addtocard).flat().length} items</div>
+                                <div className="text-[14px] font-extrabold">{totalProduct()} items</div>
                                 <div className="text-[14px] font-extrabold"> ₹{calculateTotalMRP(addtocard)}</div>
                             </div></>:<><i className="fa-solid fa-cart-shopping text-[20px]"></i><div>My Cart</div></>}
                         </button>
