@@ -2,7 +2,6 @@ import React from "react";
 
 const Footer: React.FC = () => {
     return (
-        <div className="home-container">
             <footer className="py-6 mt-10">
                 {/* Top Section */}
                 <div className="container mx-auto px-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 text-sm">
@@ -92,7 +91,6 @@ const Footer: React.FC = () => {
                     <p className="text-sm tracking-wide font-light"> “Blinkit” is owned & managed by "Blink Commerce Private Limited" and is not related, linked or interconnected in whatsoever manner or nature, to “GROFFR.COM” which is a real estate services business operated by “Redstone Consultancy Services Private Limited”.</p>
                 </div>
             </footer>
-        </div>
     );
 };
 

@@ -15,8 +15,7 @@ function Home() {
   }, [dispatch]);
   
   return (
-    <div className="home-container">
-      {products?.objects && products.objects.length && 
+      products?.objects && products.objects.length && 
           products.objects.map((el: any, idx: number) =>
             idx === 0 ?  <div className="main-container"><Banner data={el} /></div> :
             idx === 1 ? <div className="main-container"><HorizontalImageSlider data={el} /></div> :
@@ -26,8 +25,6 @@ function Home() {
             <HorizontalCardList>{el.objects[0].data.products.map((product:any) => <ProductCard product={product} addProduct={addProduct} addtocard={addtocard} />)}</HorizontalCardList>
             </div>          
             )
-        }
-    </div>
   );
 }
 

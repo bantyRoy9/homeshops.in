@@ -7,9 +7,7 @@ const ImageGrid = ({ data, columnCount = 10 }: any) => {
             <div className="image-grid">
                 {items.map((item: any) => (
                     <a key={item.id} href={item.deeplink} target="_blank" rel="noopener noreferrer" className="grid-item">
-                        <img src={item.image} alt={item.image_title} className="grid-image"
-                            // style={{ aspectRatio: item.aspect_ratio }}
-                        />
+                        <img src={item.image} alt={item.image_title} className="grid-image"/>
                     </a>
                 ))}
             </div>

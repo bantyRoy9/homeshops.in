@@ -7,11 +7,13 @@ type Props = {}
 
 const DefaultContainer = (props: Props) => {
   return (
-    <div>
-        <Navbar/>
-        <Outlet/>
-        <Footer/>
-    </div>
+    <>
+      <Navbar />
+      <div className='home-container'>
+        <Outlet />
+        <Footer />
+      </div>
+    </>
   )
 }
 

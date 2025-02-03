@@ -10,13 +10,9 @@ const ProductCard = ({ product, addProduct, addtocard }: Props) => {
     return (
         <div key={product[0].product_id} className="card">
             <div className="card-content">
-                <div>
-                    <img src={product[0].image_url} alt={product[0].name} className="card-image" width={140} />
-                </div>
+                <img src={product[0].image_url} alt={product[0].name} className="card-image" width={140} />
                 <div className="card-details">
-                    <div className="card-eta">
-                        <p>{product[0].eta_tag.text.toUpperCase()}</p>
-                    </div>
+                    <p className="card-eta">{product[0].eta_tag.text.toUpperCase()}</p>
                     <div className="card-titles">
                         <h3 className="card-title">{product[0].name}</h3>
                     </div>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { AddToCardDrawer, Login } from '../Components/ChildComponents';
 import { Drawer, Modal } from '../Components';
-import { useAppSelector } from '../Redux/Store';
+import { AddToCardDrawer, Login } from '../Components/ChildComponents';
 import { useAddToCart } from '../Utils/customHooks/useAddToCart';
 
 const Navbar: React.FC = () => {
@@ -13,18 +12,6 @@ const Navbar: React.FC = () => {
     }
     const handleModal = () => setLogin(prev => !prev);
     const [isOpen, setIsOpen] = useState(false);
-       
-    // Function to calculate total MRP
-// const calculateTotalMRP = (products:any[]) => {
-//     let totalMRP = 0 as number;
-//     debugger
-//     for (const productId in products) {
-//         totalMRP += products[productId].reduce((total:number,group:any[]) => total + parseFloat(group[0].mrp),0);
-//     }
-//     return totalMRP;
-//   };
-//   const totalMRP = calculateTotalMRP(addtocard);
-   
     return (<>
         <Drawer headerName='My Cart' position={"right"} isOpen={isOpen} onClose={() => setIsOpen(false)} children={<AddToCardDrawer/>}/>
         {login && <Modal btnTitle="" children={<Login />} closeModal={handleModal} headerTitle={""} modalSize="lg" onSubmit={() => { }} />}
