@@ -12,17 +12,17 @@ interface ImageMagnifyProps {
 
 const ImgMagnify: React.FC<ImageMagnifyProps> = (props) => {
   return (
-    <div>
+    <div> 
       <ReactImageMagnify
         {...props}
         {...{
           smallImage: {
             alt: "Wristwatch by Ted Baker London",
             isFluidWidth: true,
-            src: props.largeImageSrc,
+            src: require("./cover.png"),
           },
           largeImage: {
-            src: props.smallImageSrc,
+            src: require("./cover.png"),
             width: 1000,
             height: 480,
           },
