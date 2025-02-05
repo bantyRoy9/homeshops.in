@@ -19,10 +19,10 @@ const ImgMagnify: React.FC<ImageMagnifyProps> = (props) => {
           smallImage: {
             alt: "Wristwatch by Ted Baker London",
             isFluidWidth: true,
-            src: require("./cover.png"),
+            src: props.largeImageSrc,
           },
           largeImage: {
-            src: require("./cover.png"),
+            src: props.largeImageSrc,
             width: 1000,
             height: 480,
           },
