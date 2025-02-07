@@ -36,17 +36,17 @@ const ProductZoom: React.FC<ProductZoomProps> = ({ imageSrc, highResImageSrc, zo
     const clampedY = Math.max(0, Math.min(lensY, maxY));
 
 
-    lensRef.current.style.left = clampedX + 95 + 'px';
-    lensRef.current.style.top = clampedY + 85 + 'px';
+    lensRef.current.style.left = clampedX + 'px';
+    lensRef.current.style.top = clampedY + 'px';
     // Calculate zoom image position to show the correct area
     if (zoomedImageSideRef.current) {
       const zoomX = -clampedX * (zoomLevel - 1); // Adjust for zoom level
       const zoomY = -clampedY * (zoomLevel - 1);
-      
+
       zoomedImageSideRef.current.style.left = zoomX + 'px';
       zoomedImageSideRef.current.style.top = zoomY + 'px';
-      lensRef.current.style.width = 100 + 'px';
-      lensRef.current.style.height = 100 + 'px';
+      lensRef.current.style.width = 150 + 'px';
+      lensRef.current.style.height = 150 + 'px';
 
     }
   };
@@ -62,28 +62,16 @@ const ProductZoom: React.FC<ProductZoomProps> = ({ imageSrc, highResImageSrc, zo
   }, [mousePos, isHovering]);
 
   return (
-    <div className="product-container">
+    <div className="product-container w-fit">
       <div className="image-gallery">
-      <div className="main-image-container" ref={containerRef} onMouseMove={handleMouseMove} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
+        <div className="main-image-container relative" ref={containerRef} onMouseMove={handleMouseMove} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
           <img className="product-image" src={imageSrc} alt={altText} />
-          <div className={`absolute z-10 border border-red-500 cursor-cell`} ref={lensRef} style={{ display: isHovering ? 'block' : 'none' }}></div> {/* Lens area */}
+          <div className="lens" ref={lensRef} style={{ display: isHovering ? 'block' : 'none' }}></div> {/* Lens area */}
           <div className="overlay" style={{ display: isHovering ? 'block' : 'none' }}></div> {/* Overlay to dim rest of image */}
         </div>
       </div>
       <div className="zoomed-image-side" style={{ display: isHovering ? 'block' : 'none' }}>
-        <img
-          ref={zoomedImageSideRef}
-          src={highResImageSrc}
-          alt={altText}
-          style={{ transform: `scale(${zoomLevel})`, maxWidth: '100%', height: 'auto' }}
-        />
-      </div>
-      <div className="product-details">
-         {/* Product details content */}
-        <h2>Product Details</h2>
-        <p>Toned Milk</p>
-        <p>Healthy and fresh</p>
-        {/* ... more details */}
+        <img ref={zoomedImageSideRef} src={highResImageSrc} alt={altText} style={{ transform: `scale(${zoomLevel})`, maxWidth: '100%', height: 'auto' }} />
       </div>
     </div>
   );
