@@ -22,7 +22,7 @@ function Home() {
             idx === 2 ? <ImageGrid data={el.data} /> :                                    
             <div className="section relative" key={idx}>
             <h3 className="section-title">{el.header_config.title}</h3>
-            <HorizontalCardList>{el.objects[0].data.products.map((product:any) => <ProductCard product={product} addProduct={addProduct} addtocard={addtocard} />)}</HorizontalCardList>
+            <HorizontalCardList>{el.objects[0].data.products.map((product:any) => <ProductCard product={product[0]} addProduct={addProduct} addtocard={addtocard} />)}</HorizontalCardList>
             </div>          
             )
   );

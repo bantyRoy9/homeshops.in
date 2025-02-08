@@ -5,9 +5,7 @@ import AddToCartButton from '../Buttons/AddToCartButton'
 type Props = {}
 
 const AddToCardDrawer = (props: Props) => {
-    const {addtocard,addProduct,totalProduct,calculateTotalMRP} = useAddToCart();
-    console.log(addtocard);
-    
+    const {addtocard,addProduct,totalProduct,calculateTotalMRP} = useAddToCart();    
     return (addtocard && Object.keys(addtocard).length>0 ?
     <div>
         <div className='m-3 flex flex-col gap-4 h-[84vh] overflow-scroll' >

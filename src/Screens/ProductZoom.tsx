@@ -2,13 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import './ProductZoom.css';
 
 interface ProductZoomProps {
-  imageSrc: string;
-  highResImageSrc: string;
+  src: string;
   zoomLevel?: number;
   altText?: string;
 }
 
-const ProductZoom: React.FC<ProductZoomProps> = ({ imageSrc, highResImageSrc, zoomLevel = 1.2, altText = "Product Image" }) => {
+const ProductZoom: React.FC<ProductZoomProps> = ({ src, zoomLevel = 1.2, altText = "Product Image" }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const zoomedImageSideRef = useRef<HTMLImageElement>(null);
   const lensRef = useRef<HTMLDivElement>(null); // Ref for the lens area
@@ -62,16 +61,16 @@ const ProductZoom: React.FC<ProductZoomProps> = ({ imageSrc, highResImageSrc, zo
   }, [mousePos, isHovering]);
 
   return (
-    <div className="product-container w-fit">
+    <div className="product-container w-[85%]">
       <div className="image-gallery">
         <div className="main-image-container relative" ref={containerRef} onMouseMove={handleMouseMove} onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
-          <img className="product-image" src={imageSrc} alt={altText} />
+          <img className="product-image" src={src} alt={altText} />
           <div className="lens" ref={lensRef} style={{ display: isHovering ? 'block' : 'none' }}></div> {/* Lens area */}
           <div className="overlay" style={{ display: isHovering ? 'block' : 'none' }}></div> {/* Overlay to dim rest of image */}
         </div>
       </div>
       <div className="zoomed-image-side" style={{ display: isHovering ? 'block' : 'none' }}>
-        <img ref={zoomedImageSideRef} src={highResImageSrc} alt={altText} style={{ transform: `scale(${zoomLevel})`, maxWidth: '100%', height: 'auto' }} />
+        <img ref={zoomedImageSideRef} src={src} alt={altText} style={{ transform: `scale(${zoomLevel})`, maxWidth: '100%', height: 'auto' }} />
       </div>
     </div>
   );

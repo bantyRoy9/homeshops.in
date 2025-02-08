@@ -48,8 +48,9 @@ body {
 
 /* Card styles */
 .card {
-  @apply bg-white rounded-lg max-w-[179px] min-w-[179px] transition-transform duration-200 border-[0.5px] border-[#e8e8e8] shadow-[2px_2px_8px_rgba(0,0,0,0.04)];
+  @apply bg-white rounded-lg max-w-[179px] min-w-[179px] transition-transform duration-200 border-[0.5px] shadow-[2px_2px_8px_rgba(0,0,0,0.04)];
 }
+
 .card-content{
   @apply flex flex-col px-3 items-center   h-full 
 }
@@ -79,6 +80,16 @@ body {
 }
 .card-button{
   @apply px-5 py-2 bg-[rgba(240,253,244,0.5)] border text-[12px] border-green-600 rounded-md text-green-700 font-medium
+}
+/* Product details */
+.horizontal-card-list:has(.slidecard){
+  @apply gap-2
+}
+.slidecard{
+  @apply min-w-fit
+}
+.slidecard .card-content{
+  @apply p-1
 }
 /* Section styling */
 .section {
@@ -1021,4 +1032,27 @@ img {
 }
 body:has(.modal-overlay) {
   overflow: hidden;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar {
+  @apply overflow-y-scroll;
+}
+.custom-scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Adjust scrollbar width */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-gray-200; /* Track color */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gray-500 rounded-lg; /* Thumb (handle) color */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-700; /* Hover effect */
 }
