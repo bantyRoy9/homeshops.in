@@ -13,12 +13,13 @@ const Product: React.FC = () => {
   const [activeProductImg, setActiveProductImg] = useState<string>(product.sliding_images[0]);
   const location = useLocation().hash.replace("#", "");
   useEffect(() => {
-    location !== "-1" && setActiveProductImg(product.sliding_images[parseInt(location) - 1])
+    (location && location !== "-1") && setActiveProductImg(product.sliding_images[parseInt(location) - 1])
   }, [product, location]);
-
+  console.log(product.name);
+  
   const productDetails = {
-    name: "Toned Milk",
-    type: "Dairy Product",
+    name: product.name,
+    type: product.type,
     keyFeatures: ["Healthy and fresh", "Used in making tea, coffee, etc.", "Has a shelf life of 90 days"],
     unit: "450 ml",
     ingredients: ["Toned Milk", "Fat 3% minimum", "SNF 8.5% minimum"],
@@ -59,7 +60,8 @@ const Product: React.FC = () => {
                 </ul>
               ) : typeof value === "object" ? (
                 Object.entries(value).map(([subKey, subValue]) => (
-                  <p key={subKey}>{subValue}</p>
+                  // <p key={subKey}>{subValue?subValue:""}</p>
+                  <></>
                 ))
               ) : (
                 <p>{value}</p>
