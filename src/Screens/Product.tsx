@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import ProductZoom from './ProductZoom';
 import { HorizontalCardList } from '../Components';
 import { useProductDetails } from '../Utils/customHooks/useProductDetails';
-import ProductCard from '../Components/ProductCard';
+import ProductCard from '../Components/Cards/ProductCard';
 import AddToCartButton from '../Components/Buttons/AddToCartButton';
 import { useLocation } from 'react-router-dom';
 import Rating from '../Components/Buttons/Rating';

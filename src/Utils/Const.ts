@@ -1,4 +1,23 @@
 import { JSX } from "react";
+export const FORMTOASTERRID = 'formtoastid';
+export const OTP_COUNT=60;
+export const OTP_COUNTER = 1;
+/********DRAWER*********/
+export type DrawerPosition = "top" | "right" | "bottom" | "left";
+export type DrawerProps = {
+    position: DrawerPosition;
+    isOpen: boolean;
+    onClose: () => void;
+    children: any
+    headerName:string
+};
+export interface IProductCard {
+  product: any,
+  width?:number,
+  addProduct?: any,
+  addtocard?: any,
+  activecard?:number|null
+}
 
 export interface modalPropsTypes {
     headerTitle: String;

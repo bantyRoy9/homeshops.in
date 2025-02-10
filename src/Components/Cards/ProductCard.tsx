@@ -1,15 +1,8 @@
 import React, { memo } from 'react'
-import AddToCartButton from './Buttons/AddToCartButton';
+import AddToCartButton from '../Buttons/AddToCartButton';
 import { NavLink } from 'react-router-dom';
-type Props = {
-    product: any,
-    width?:number,
-    addProduct?: any,
-    addtocard?: any,
-    activecard?:number|null
-}
-
-const ProductCard = ({ product, addProduct, addtocard,width=140,activecard=null }: Props) => {
+import { IProductCard } from 'Utils/Const';
+const ProductCard = ({ product, addProduct, addtocard,width=140,activecard=null }: IProductCard) => {
     const isproduct = typeof product === "object" ? true : false;
     return (
         <NavLink to={isproduct?'product':`#${activecard}`} key={product?.product_id??product} className={`card ${isproduct?'':'slidecard'} ${activecard === -1 ? 'border-green-600':'border-[#e8e8e8]'}`}>

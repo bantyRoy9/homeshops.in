@@ -1,9 +1,8 @@
-import Banner from "./Banner";
-import Categories from "./Categories";
+import Banner from "./Cards/Banner";
 import Drawer from "./Drawer";
-import HorizontalCardList from "./HorizontalCardView";
-import HorizontalImageSlider from "./HorizentalSlider";
-import ImageGrid from "./ImageGrid";
+import HorizontalCardList from "./Cards/HorizontalCardView";
+import HorizontalImageSlider from "./Cards/HorizentalSlider";
+import ImageGrid from "./Cards/ImageGrid";
 import Input from "./Input";
 import Modal from "./Modal";
-export {Banner,Categories,Drawer,HorizontalCardList,HorizontalImageSlider,ImageGrid,Input,Modal}
+export {Banner,Drawer,HorizontalCardList,HorizontalImageSlider,ImageGrid,Input,Modal}

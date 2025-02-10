@@ -1,3 +1,3 @@
 import AddToCardDrawer from "./AddToCardDrawer";
-import Login from "./Login";
+import Login from "../Auth/Login";
 export {AddToCardDrawer,Login}

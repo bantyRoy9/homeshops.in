@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import Banner from "../Components/Banner";
-import HorizontalImageSlider from "../Components/HorizentalSlider";
-import HorizontalCardList from "../Components/HorizontalCardView";
-import ImageGrid from "../Components/ImageGrid";
-import ProductCard from "../Components/ProductCard";
-import { useAppDispatch, useAppSelector } from "../Redux/Store";
+import Banner from "../Components/Cards/Banner";
+import HorizontalImageSlider from "../Components/Cards/HorizentalSlider";
+import HorizontalCardList from "../Components/Cards/HorizontalCardView";
+import ImageGrid from "../Components/Cards/ImageGrid";
+import ProductCard from "../Components/Cards/ProductCard";
+import { useAppDispatch } from "../Redux/Store";
 import { getCardDetails } from "../Redux/Store.Actions";
 import { useAddToCart } from "../Utils/customHooks/useAddToCart";
 function Home() {
@@ -12,7 +12,7 @@ function Home() {
   const {addProduct,addtocard,products} = useAddToCart()
   useEffect(() => {
     !products?.objects && dispatch(getCardDetails());
-  }, [dispatch]);
+  }, [dispatch,products]);
   
   return (
       products?.objects && products.objects.length && 

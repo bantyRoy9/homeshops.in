@@ -1,7 +1,5 @@
-import { link } from './../Assests/link';
 import React from 'react';
-import { BannerProps } from './type';
-
+import { BannerProps } from '../type';
 const Banner: React.FC<BannerProps> = ({ data }) => {
     const { data: bannerData, layout_config } = data;
     const bannerStyle: React.CSSProperties = {
