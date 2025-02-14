@@ -5,18 +5,18 @@ import { IProductCard } from 'Utils/Const';
 const ProductCard = ({ product, addProduct, addtocard,width=140,activecard=null }: IProductCard) => {
     const isproduct = typeof product === "object" ? true : false;
     return (
-        <NavLink to={isproduct?'product':`#${activecard}`} key={product?.product_id??product} className={`card ${isproduct?'':'slidecard'} ${activecard === -1 ? 'border-green-600':'border-[#e8e8e8]'}`}>
+        <NavLink to={isproduct?'product':`#${activecard}`} key={product?.id??product} className={`card ${isproduct?'':'slidecard'} ${activecard === -1 ? 'border-green-600':'border-[#e8e8e8]'}`}>
             <div className="card-content">
-                <img src={product?.image_url??product} alt={product?.name??product} className="card-image" width={width} />
+                <img src={/*product?.image_url??product*/'https://cdn.grofers.com/app/assets/products/large_images/jpeg/4198835a-3d44-4eef-a456-e794211d2e67.jpg?ts=1706182142'} alt={product?.name??product} className="card-image" width={width} />
                 {isproduct && <div className="card-details">
-                    <p className="card-eta">{product.eta_tag.text.toUpperCase()}</p>
+                    <p className="card-eta">{product.base_price.toUpperCase()}</p>
                     <div className="card-titles">
                         <h3 className="card-title">{product.name}</h3>
                     </div>
-                    <p className="card-unit">{product.unit}</p>
+                    <p className="card-unit">{product.brand.name}</p>
                     <div className="card-footer">
-                        <p className="card-price">₹{product.price}</p>
-                        <AddToCartButton handleClick={(type) => addProduct(type, product)} itemCount={(addtocard && addtocard[product.product_id] && addtocard[product.product_id])?addtocard[product.product_id].length : 0} />
+                        <p className="card-price">₹{product.base_price}</p>
+                        <AddToCartButton handleClick={(type) => addProduct(type, product)} itemCount={(addtocard && addtocard[product.id] && addtocard[product.id])?addtocard[product.id].length : 0} />
                     </div>
                 </div>}
             </div>

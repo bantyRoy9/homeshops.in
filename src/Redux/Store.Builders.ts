@@ -1,16 +1,17 @@
 import { ActionReducerMapBuilder, PayloadAction } from "@reduxjs/toolkit";
-import { getCardDetails } from "./Store.Actions";
+import { getProjects } from "./Store.Actions";
 import { initialStateTy } from "./Store.Reducers";
+import { TProducts } from "./type";
 
 const buildEPCExtraReducers = (builder: ActionReducerMapBuilder<initialStateTy>) => {
     builder
-        .addCase(getCardDetails.fulfilled, (state, { payload }: PayloadAction<any[]>) => {
+        .addCase(getProjects.fulfilled, (state, { payload }: PayloadAction<TProducts>) => {
             state.products = payload;
         })
-        .addCase(getCardDetails.pending, (state) => {
+        .addCase(getProjects.pending, (state) => {
             state.products = [];
         })
-        .addCase(getCardDetails.rejected, (state) => {
+        .addCase(getProjects.rejected, (state) => {
             state.products = [];
         })
     };

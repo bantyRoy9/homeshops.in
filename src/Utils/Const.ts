@@ -1,4 +1,5 @@
 import { JSX } from "react";
+import { IProduct } from "Redux/type";
 export const FORMTOASTERRID = 'formtoastid';
 export const OTP_COUNT=60;
 export const OTP_COUNTER = 1;
@@ -12,7 +13,7 @@ export type DrawerProps = {
     headerName:string
 };
 export interface IProductCard {
-  product: any,
+  product: IProduct,
   width?:number,
   addProduct?: any,
   addtocard?: any,

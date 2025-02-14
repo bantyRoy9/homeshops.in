@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../Redux/Store";
 import { addItem } from "../../Redux/Store.Reducers";
-import { getCardDetails } from "./../../Redux/Store.Actions";
+import { getProjects } from "./../../Redux/Store.Actions";
 
 export const useAddToCart = () => {
     const dispatch = useAppDispatch();
     const { addtocard, products } = useAppSelector(state => state);
     useEffect(() => {
-        !products?.objects && dispatch(getCardDetails());
+        !products.length && dispatch(getProjects());
     }, [dispatch]);
     const addProduct = (type: -1 | 1, product: any) => dispatch(addItem({ product, type }));
     const calculateTotalMRP = (products: any[]) => {
