@@ -8,12 +8,12 @@ if(!Object.keys(preloadedState).length){
 }
 export const store = configureStore({
     reducer: storeDetailSlice,
-    preloadedState,
+    // preloadedState,
 });
-store.subscribe(() => {
-    const states = store.getState();
-    saveState({ products: states.products,addtocard:states.addtocard||{},product:states.product });
-});
+// store.subscribe(() => {
+//     const states = store.getState();
+//     saveState({ products: states.products,addtocard:states.addtocard||{},product:states.product });
+// });
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
 export const useAppDispatch = () => useDispatch<AppDispatch>();

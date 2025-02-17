@@ -1,28 +1,23 @@
-import { useEffect } from "react";
-import Banner from "../Components/Cards/Banner";
-import HorizontalImageSlider from "../Components/Cards/HorizentalSlider";
+import { JSX } from "react";
 import HorizontalCardList from "../Components/Cards/HorizontalCardView";
-import ImageGrid from "../Components/Cards/ImageGrid";
 import ProductCard from "../Components/Cards/ProductCard";
-import { useAppDispatch } from "../Redux/Store";
-import { getCardDetails, getProjects } from "../Redux/Store.Actions";
 import { useAddToCart } from "../Utils/customHooks/useAddToCart";
-import { IProduct } from "Redux/type";
 const Home = () => {
-  const dispatch = useAppDispatch();
-  const {addProduct,addtocard,products} = useAddToCart()
-  useEffect(() => {
-    !products.length && dispatch(getProjects());
-  }, [dispatch,products]);
-  return (
-  <> {products.map((product: IProduct, idx: number) =>
-            // idx === 0 ?  <div className="main-container"><Banner data={el} /></div> :
-            // idx === 1 ? <div className="main-container"><HorizontalImageSlider data={el} /></div> :
-            // idx === 2 ? <ImageGrid data={el.data} /> :                                    
-            <div className="section relative" key={idx}>
-            <h3 className="section-title">{product.category.name}</h3>
-            <HorizontalCardList>{products.map((product:any) => <ProductCard product={product} addProduct={addProduct} addtocard={addtocard} />)}</HorizontalCardList>
-            </div>)}</>)
+  const {addProduct,addtocard,products} = useAddToCart();
+  const bindProduct = () =>{
+    const uniqeCat = Array.from(new Set(products.map(el=>el.category.id))).sort(),listView:JSX.Element[]=[];
+    console.log(uniqeCat);
+    
+    uniqeCat.forEach((el,idx)=>{
+      let dd = products.filter(ele=> ele.category.id === el);
+      listView.push(<div className="section relative" key={idx}>
+        <h3 className="section-title">{dd[0].category.name}</h3>
+        <HorizontalCardList>{dd.map((product:any) => <ProductCard product={product} addProduct={addProduct} addtocard={addtocard} />)}</HorizontalCardList>
+        </div>)
+    })
+    return <>{listView}</>;
+  }
+  return bindProduct();
 }
 
 export default Home;

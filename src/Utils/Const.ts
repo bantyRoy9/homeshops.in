@@ -15,7 +15,7 @@ export type DrawerProps = {
 export interface IProductCard {
   product: IProduct,
   width?:number,
-  addProduct?: any,
+  addProduct?:(e: React.MouseEvent<HTMLButtonElement, MouseEvent>,item:-1|1,product:IProduct)=>void,
   addtocard?: any,
   activecard?:number|null
 }

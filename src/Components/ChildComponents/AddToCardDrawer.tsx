@@ -30,7 +30,7 @@ const AddToCardDrawer = (props: Props) => {
                             <span className='text-primary-heading-sm font-semibold'>₹{addtocard[el].reduce((total:number,el:any)=>total+parseFloat(el.mrp),0)}</span>
                         </div>
                         <div>
-                            <AddToCartButton handleClick={(type)=>addProduct(type,addtocard[el][0])} itemCount={addtocard[el].length}/>
+                            <AddToCartButton handleClick={(e,type)=>addProduct(e,type,addtocard[el][0])} itemCount={addtocard[el].length}/>
                         </div>
                     </div>
                 ))}

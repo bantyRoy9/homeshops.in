@@ -49,6 +49,7 @@ body {
 /* Card styles */
 .card {
   @apply bg-white rounded-lg max-w-[179px] min-w-[179px] transition-transform duration-200 border-[0.5px] shadow-[2px_2px_8px_rgba(0,0,0,0.04)];
+  text-align: inherit !important;
 }
 
 .card-content{

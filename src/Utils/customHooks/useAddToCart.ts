@@ -2,14 +2,19 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../Redux/Store";
 import { addItem } from "../../Redux/Store.Reducers";
 import { getProjects } from "./../../Redux/Store.Actions";
+import { IProduct } from "Redux/type";
 
 export const useAddToCart = () => {
     const dispatch = useAppDispatch();
     const { addtocard, products } = useAppSelector(state => state);
-    useEffect(() => {
-        !products.length && dispatch(getProjects());
+    useEffect(() => { 
+        dispatch(getProjects());
     }, [dispatch]);
-    const addProduct = (type: -1 | 1, product: any) => dispatch(addItem({ product, type }));
+    const addProduct = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>,type: -1 | 1, product: IProduct) => {
+        e.stopPropagation(); 
+        debugger
+        dispatch(addItem({ product, type }));
+    };
     const calculateTotalMRP = (products: any[]) => {
         let totalMRP = 0 as number;
         for (const productId in products) {
