@@ -9,17 +9,20 @@ import { useLocation } from 'react-router-dom';
 import Rating from '../Components/Buttons/Rating';
 
 const Product: React.FC = () => {
-  const { product } = useProductDetails();
-  const [activeProductImg, setActiveProductImg] = useState<string>(product.sliding_images[0]);
-  const location = useLocation().hash.replace("#", "");
+  const { product,getProductDetails } = useProductDetails();
+  const [activeProductImg, setActiveProductImg] = useState<string>();
+  const {hash,pathname} = useLocation()
   useEffect(() => {
-    (location && location !== "-1") && setActiveProductImg(product.sliding_images[parseInt(location) - 1])
-  }, [product, location]);
-  console.log(product.name);
+    (hash && hash.replace("#","") !== "-1") && setActiveProductImg(product.sliding_images[parseInt(hash.replace("#","")) - 1]);
+    getProductDetails(pathname).then((product:any)=>{
+      setActiveProductImg(product.payload.sliding_images[0])
+    })
+  }, []);
+  console.log(product);
   
   const productDetails = {
     name: product.name,
-    type: product.type,
+    type: product?.category?.name,
     keyFeatures: ["Healthy and fresh", "Used in making tea, coffee, etc.", "Has a shelf life of 90 days"],
     unit: "450 ml",
     ingredients: ["Toned Milk", "Fat 3% minimum", "SNF 8.5% minimum"],
@@ -39,10 +42,10 @@ const Product: React.FC = () => {
       <div className="flex-1">
         <div className="">
           <div className='px-5 pb-5'>
-            <ProductZoom src={activeProductImg} zoomLevel={3} />
+            <ProductZoom src={activeProductImg!} zoomLevel={3} />
           </div>
           <div className='w-[85%] relative'>
-            <HorizontalCardList>{product.sliding_images.map((el: any, ind: number) => <ProductCard product={el} width={50} activecard={activeProductImg === el ? -1 : ind + 1} />)}</HorizontalCardList>
+            <HorizontalCardList>{product?.sliding_images?.map((el: any, ind: number) => <ProductCard product={el} width={50} activecard={activeProductImg === el ? -1 : ind + 1} />)}</HorizontalCardList>
           </div>
         </div>
         <div className="my-6 py-4 border-t-[1px]">
@@ -72,13 +75,13 @@ const Product: React.FC = () => {
       </div>
       <div className="flex-1 max-w-[45%] sticky top-[90px] bottom-0 self-start pt-16 pl-12">
         <div className="sticky top-6">
-          <p className="text-sm text-gray-500 mb-2">Home / Milk / Amul Moti Toned Milk (90 Days Shelf Life)</p>
-          <h1 className="text-2xl font-bold mb-4">Amul Moti Toned Milk (90 Days Shelf Life)</h1>
+          {/* <p className="text-sm text-gray-500 mb-2">Home / Milk / Amul Moti Toned Milk (90 Days Shelf Life)</p> */}
+          <h1 className="text-2xl font-bold mb-4">{productDetails.name}</h1>
           <div className="mb-4"><Rating />
           </div>
           <p className="text-green-500 mb-2">In 10 MINS</p>
           <p className="mb-4">
-            View all by <a href="#" className="text-blue-500">Amul</a>
+            View all by <a href="#" className="text-blue-500">{product?.brand?.name}</a>
           </p>
           <p className="text-xl font-bold mb-2">
             <strong>450 ml</strong>

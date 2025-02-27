@@ -1,7 +1,7 @@
 import { ActionReducerMapBuilder, PayloadAction } from "@reduxjs/toolkit";
-import { getProjects } from "./Store.Actions";
+import { getProject, getProjects } from "./Store.Actions";
 import { initialStateTy } from "./Store.Reducers";
-import { TProducts } from "./type";
+import { IProduct, TProducts } from "./type";
 
 const buildEPCExtraReducers = (builder: ActionReducerMapBuilder<initialStateTy>) => {
     builder
@@ -13,6 +13,15 @@ const buildEPCExtraReducers = (builder: ActionReducerMapBuilder<initialStateTy>)
         })
         .addCase(getProjects.rejected, (state) => {
             state.products = [];
+        })
+        .addCase(getProject.fulfilled, (state, { payload }: PayloadAction<IProduct>) => {
+            state.product = payload;
+        })
+        .addCase(getProject.pending, (state) => {
+            state.product = {} as IProduct;
+        })
+        .addCase(getProject.rejected, (state) => {
+            state.product = {} as IProduct;
         })
     };
 export default buildEPCExtraReducers

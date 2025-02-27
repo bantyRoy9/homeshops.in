@@ -9,6 +9,7 @@ export interface IProduct {
   category: ICategory
   image_url:string
   shopProducts: IShopProduct[]
+  sliding_images:string[]
 }
 
 export interface IBrand {

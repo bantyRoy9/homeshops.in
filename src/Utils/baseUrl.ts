@@ -61,5 +61,6 @@ const configureAxios = (): AxiosInstance => {
 };
 export const AxiosConfig:AxiosInstance = configureAxios()
 export const routes = {
-   Products:"products"
+   Products:"products",
+   Product:"products"
 }

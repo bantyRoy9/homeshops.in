@@ -6,8 +6,6 @@ const Home = () => {
   const {addProduct,addtocard,products} = useAddToCart();
   const bindProduct = () =>{
     const uniqeCat = Array.from(new Set(products.map(el=>el.category.id))).sort(),listView:JSX.Element[]=[];
-    console.log(uniqeCat);
-    
     uniqeCat.forEach((el,idx)=>{
       let dd = products.filter(ele=> ele.category.id === el);
       listView.push(<div className="section relative" key={idx}>
