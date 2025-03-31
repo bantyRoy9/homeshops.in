@@ -2,6 +2,7 @@ import { JSX } from "react";
 import HorizontalCardList from "../Components/Cards/HorizontalCardView";
 import ProductCard from "../Components/Cards/ProductCard";
 import { useAddToCart } from "../Utils/customHooks/useAddToCart";
+import { HeroSection } from "../Components/Sections/HomeSections/HeroSection";
 const Home = () => {
   const {addProduct,addtocard,products} = useAddToCart();
   const bindProduct = () =>{
@@ -15,7 +16,11 @@ const Home = () => {
     })
     return <>{listView}</>;
   }
-  return bindProduct();
+  return (<>
+    <HeroSection/>
+  {bindProduct()}
+  </>
+  )
 }
 
 export default Home;
