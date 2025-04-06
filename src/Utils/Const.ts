@@ -3,6 +3,8 @@ import { IProduct } from "Redux/type";
 export const FORMTOASTERRID = 'formtoastid';
 export const OTP_COUNT=60;
 export const OTP_COUNTER = 1;
+export const imgurl = 'https://cdn.grofers.com/app/assets/products/large_images/jpeg/4198835a-3d44-4eef-a456-e794211d2e67.jpg?ts=1706182142'
+
 /********DRAWER*********/
 export type DrawerPosition = "top" | "right" | "bottom" | "left";
 export type DrawerProps = {

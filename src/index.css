@@ -338,25 +338,7 @@ img {
 
   /**** Global Button CSS Ends ****/
 
-  /**** Global Inputs CSS Starts ****/
-  .main-box1 {
-    /* @apply relative w-64 md:w-64 lg:w-full px-2 pt-4 pb-2; */
-    @apply relative w-full
-    /*px-2*/
-    pt-4 pb-2;
-  }
 
-  .label-box1 {
-    @apply block w-full pb-1 para-xs text-gray-800 transition-all duration-200 ease-in-out focus-within:text-custom-primary-default capitalize;
-  }
-
-  .input-box1 {
-    @apply h-10 w-full border border-gray-300 rounded-md bg-gray-50 px-4 para-sm outline-none drop-shadow-sm transition-all duration-200 ease-in-out focus:bg-white focus:ring-1 focus:ring-custom-primary-default/80 focus:drop-shadow-md;
-  }
-
-  .input-main1 {
-    @apply relative flex items-center;
-  }
 
   /* Success & Error Input */
   .label-success {
@@ -382,62 +364,34 @@ img {
     @apply bg-black cursor-not-allowed
   }
 
-  /* Helper Input */
-  .helper-box1 {
-    @apply absolute block pt-1 text-xs font-medium text-gray-500 opacity-0 transition-all duration-200 ease-in-out focus-within:opacity-100;
-  }
-  .helper-box2 {
-    @apply absolute right-0 block pt-1 text-xs font-medium text-gray-500 opacity-0 transition-all duration-200 ease-in-out focus-within:opacity-100;
-  }
-
-  /* Sufix & Prefix Input */
-  .pre-box1 {
-    @apply absolute left-1 para-sm transition-all duration-200 ease-in-out;
-  }
-
-  .pre-input1 {
-    @apply relative pl-11 pr-6
-  }
-
-  .suf-box1 {
-    @apply absolute right-1 para-sm transition-all duration-200 ease-in-out
-  }
-
-  .suf-input1 {
-    @apply relative pl-6 pr-11
-  }
-
-  .presuf-input1 {
-    @apply relative pl-11 pr-11
-  }
 
   /* Upload Input */
-  .upload-input1 {
+  .upload-input{
     @apply flex h-10 w-full border border-gray-300 rounded-md bg-gray-50 px-4 py-2 text-sm text-gray-400 font-thin outline-none drop-shadow-sm transition-all duration-200 ease-in-out file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium focus:bg-white focus:ring-1 focus:ring-custom-primary-default/80 focus:drop-shadow-md
   }
 
-  .upload-input1.input-error, .upload-input1.input-error::file-selector-button {
+  .upload-input.input-error, .upload-input.input-error::file-selector-button {
     @apply text-rose-400 border-rose-400 ring-rose-400 focus:border-rose-400 focus:ring-rose-400
   }
 
   /* Radio Input */
-  .main-box2 {
+  .main-box {
     @apply flex flex-col w-72 md:w-80 p-2;
   }
 
-  .label-box2 {
+  .label-box {
     @apply relative flex items-center text-nowrap text-sm font-medium text-gray-500 transition-all duration-200 ease-in-out focus-within:text-custom-primary-default cursor-pointer;
   }
 
-  .label-box3 {
+  .label-box {
     @apply ml-1 text-sm font-medium text-gray-400 transition-all duration-200 ease-in-out peer-checked:text-custom-primary-default cursor-pointer;
   }
 
-  .label-box3.label-error {
+  .label-box.label-error {
     @apply text-rose-400
   }
 
-  .input-main2 {
+  .input-main {
     @apply relative flex flex-row justify-start py-2 gap-4;
   }
 
@@ -457,190 +411,43 @@ img {
     @apply border-gray-400 accent-custom-primary-default hover:accent-custom-primary-default h-4 w-4 transition duration-300 ease-in-out;
   }
 
-  /* Toggle Input */
-  .label-box5 {
-    @apply relative inline-flex items-center cursor-pointer
-  }
-
-  .main-toggle1 {
-    @apply ring-0 bg-rose-400 rounded-full outline-none duration-300 after:duration-300 w-12 h-6 shadow-md peer-checked:bg-emerald-500 peer-focus:outline-none after:content-['✖️'] after:text-xs after:rounded-full after:absolute after:bg-gray-50 after:outline-none after:h-5 after:w-5 after:top-0.5 after:left-0.5 after:-rotate-180 after:flex after:justify-center after:items-center peer-checked:after:translate-x-6 peer-checked:after:content-['✔️'] peer-hover:after:scale-95 peer-checked:after:rotate-0
-  }
-
-  .main-toggle2 {
-    @apply ring-0 bg-rose-400 rounded-full outline-none duration-300 after:duration-500 w-12 h-12 shadow-md peer-checked:bg-emerald-500 peer-focus:outline-none after:content-['✖️'] after:rounded-full after:absolute after:outline-none after:h-10 after:w-10 after:bg-gray-50 after:top-1 after:left-1 after:flex after:justify-center after:items-center peer-hover:after:scale-75 peer-checked:after:content-['✔️'] after:-rotate-180 peer-checked:after:rotate-0
-  }
-
+  
   /**** Global Inputs CSS Ends ****/
 
   /**** Global Modal CSS Starts ****/
-  .label-box4 {
-    @apply relative flex items-center w-fit text-sm font-medium text-gray-500 transition-all duration-200 ease-in-out focus-within:text-custom-primary-default cursor-pointer;
-  }
-
-  /* Tooltip Modal */
-  .main-tt1 {
-    @apply relative bg-gray-200 w-4 h-4 px-0.5 rounded-md hover:bg-gray-300 active:bg-gray-300
-  }
-
-  .tt-icon1 {
-    @apply flex justify-center items-center text-gray-800 text-xs
-  }
-
-  .tt-modal1 {
-    @apply bg-gray-200 p-2 rounded-md group-hover:flex hidden absolute -top-2 -translate-y-full left-1/2 -translate-x-1/2
-  }
-
-  .tt-arrow1 {
-    @apply bg-inherit rotate-45 p-1 absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2
-  }
-
-  .tt-modal2 {
-    @apply bg-gray-200 p-2 rounded-md group-hover:flex hidden absolute top-1/2 -translate-y-1/2 -right-2 translate-x-full
-  }
-
-  .tt-arrow2 {
-    @apply bg-inherit rotate-45 p-1 absolute top-1/2 -translate-y-1/2 left-0 -translate-x-1/2
-  }
-
-  .tt-modal3 {
-    @apply bg-gray-200 p-2 rounded-md group-hover:flex hidden absolute top-1/2 -translate-y-1/2 -left-2 translate-x-full
-  }
-
-  .tt-arrow3 {
-    @apply bg-inherit rotate-45 p-1 absolute top-1/2 -translate-y-1/2 -right-2 -translate-x-1/2
-  }
-
-  .tt-body1 {
-    @apply text-gray-800 text-sm font-thin w-72 md:w-80 lg:w-96 p-2
-  }
-
-  .tt-link1 {
-    @apply text-gray-800 text-sm font-thin underline hover:cursor-pointer hover:text-gray-900
-  }
-
-  /**** Global Tooltip CSS Ends ****/
-
-  /**** Global Modal CSS Starts ****/
-  .main-modal1 {
-    @apply relative flex flex-wrap bg-white px-4 py-2 shadow-md sm:flex-nowrap sm:items-center sm:justify-center sm:gap-3 sm:pr-8 md:px-8
-  }
-
-  .modal-body1 {
-    @apply order-1 mb-2 inline-block w-11/12 max-w-screen-sm text-sm text-gray-500 sm:order-none sm:mb-0 sm:w-auto md:text-base
-  }
-
-  .modal-btn1 {
-    @apply order-last inline-block w-full sm:order-none sm:w-auto
-  }
-
-  .modal-close1 {
-    @apply order-2 flex w-1/12 items-start justify-end sm:absolute sm:right-0 sm:order-none sm:mr-1 sm:w-auto xl:mr-3
-  }
-
-  /* Error Modal */
-  .error-main1 {
-    @apply bg-red-100 text-red-800 p-2 rounded-md relative flex flex-row justify-center items-start gap-1;
-  }
-
-  .error-header1 {
-    @apply para-sm-semibold capitalize pr-1
-  }
-
-  .error-body1 {
-    @apply block para-sm sm:inline max-sm:mt-2 max-sm:ml-0
-  }
-
-  .error-close1 {
-    @apply min-w-7 size-7 hover:bg-red-200 rounded-lg transition-all p-2 cursor-pointer fill-red-500
-  }
-
-  /* Warning Modal */
-  .warning-main1 {
-    @apply bg-yellow-100 text-yellow-800 p-2 rounded-md relative flex flex-row justify-center items-start gap-1;
-  }
-
-  .warning-header1 {
-    @apply para-sm-semibold capitalize pr-1
-  }
-
-  .warning-body1 {
-    @apply block para-sm sm:inline max-sm:mt-2 max-sm:ml-0
-  }
-
-  .warning-close1 {
-    @apply min-w-7 size-7 hover:bg-yellow-200 rounded-lg transition-all p-2 cursor-pointer fill-yellow-500
-  }
-
-  /* Success Modal */
-  .success-main1 {
-    @apply bg-green-100 text-green-800 p-2 rounded-md relative flex flex-row justify-center items-start gap-1;
-  }
-
-  .success-header1 {
-    @apply para-sm-semibold capitalize pr-1
-  }
-
-  .success-body1 {
-    @apply block para-sm sm:inline max-sm:mt-2 max-sm:ml-0
-  }
-
-  .success-close1 {
-    @apply min-w-7 size-7 hover:bg-green-200 rounded-lg transition-all p-2 cursor-pointer fill-green-500
-  }
-
-  /* Info Modal */
-  .info-main1 {
-    @apply bg-blue-100 text-blue-800 p-2 rounded-md relative flex flex-row justify-center items-start gap-1;
-  }
-
-  .info-header1 {
-    @apply para-sm-semibold capitalize pr-1
-  }
-
-  .info-body1 {
-    @apply block para-sm sm:inline max-sm:mt-2 max-sm:ml-0
-  }
-
-  .info-close1 {
-    @apply min-w-7 size-7 hover:bg-blue-200 rounded-lg transition-all p-2 cursor-pointer fill-blue-500
-  }
-
   /* Modal with Backdrop and No Backdrop */
-  .modal-nobackdrop1 {
+  .modal-nobackdrop {
     @apply absolute top-16 md:left-[30%] lg:left-[40%] sm:left-[18%] mt-1 mx-auto flex flex-wrap justify-center w-fit h-fit z-10 before:fixed before:inset-0 before:w-full before:h-fit
   }
 
-  .modal-backdrop1 {
+  .modal-backdrop {
     @apply fixed inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-50 before:fixed before:inset-0 before:w-full before:h-full before:bg-black/50 overflow-auto;
   }
 
-  .main-modal2 {
+  .main-modal {
     @apply relative bg-white shadow-md rounded-md p-6
   }
 
-  .main-modal3 {
-    @apply relative bg-white shadow-md rounded-md p-4
-  }
 
-  .modal-header1 {
+  .modal-header {
     @apply flex items-center pb-4 border-b border-gray-300
   }
 
-  .modal-body2 {
+  .modal-body {
     @apply w-full h-fit
     /* max-w-screen-2xl max-h-[45rem] */
     py-6 overflow-auto
   }
 
-  .modal-footer1 {
+  .modal-footer {
     @apply border-t border-gray-300 pt-4 flex justify-end gap-4
   }
 
-  .modal-btn2 {
+  .modal-btn {
     @apply order-last inline-block w-full sm:order-none sm:w-auto
   }
 
-  .modal-close2 {
+  .modal-close {
     @apply order-2 flex w-1/12 items-start justify-end sm:absolute sm:right-0 sm:order-none sm:mr-1 sm:w-auto xl:mr-3
   }
 

@@ -1,3 +1,4 @@
+import { imgurl } from '../../Utils/Const'
 import { IconRightArrow } from '../../Assests/Icons'
 import { useAddToCart } from '../../Utils/customHooks/useAddToCart'
 import AddToCartButton from '../Buttons/AddToCartButton'
@@ -22,12 +23,12 @@ const AddToCardDrawer = (props: Props) => {
                 {Object.keys(addtocard).map(el=>(
                     <div className='flex gap-x-3 items-center'>
                         <div className='w-16 h-16 border border-neutral-100 rounded-lg'>
-                            <img alt="Amul Gold Full Cream Fresh Milk" src={addtocard[el][0].image_url} loading="lazy" />
+                            <img alt="Amul Gold Full Cream Fresh Milk" src={/*addtocard[el][0].image_url*/imgurl} loading="lazy" />
                         </div>
                         <div className='flex flex-col flex-1 justify-between'>
                             <span className='text-primary-heading-sm font-light w-[70%] line-clamp-2'>{addtocard[el][0].name}</span>
                             <span className='text-primary-heading-sm font-light my-1'>500 ml</span>
-                            <span className='text-primary-heading-sm font-semibold'>₹{addtocard[el].reduce((total:number,el:any)=>total+parseFloat(el.mrp),0)}</span>
+                            <span className='text-primary-heading-sm font-semibold'>₹{addtocard[el].reduce((total:number,el:any)=>total+parseFloat(el.base_price),0)}</span>
                         </div>
                         <div>
                             <AddToCartButton handleClick={(e,type)=>addProduct(e,type,addtocard[el][0])} itemCount={addtocard[el].length}/>

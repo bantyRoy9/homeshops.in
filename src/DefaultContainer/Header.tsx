@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Drawer, Modal } from '../Components';
-import { AddToCardDrawer, Login } from '../Components/ChildComponents';
 import { useAddToCart } from '../Utils/customHooks/useAddToCart';
 
 const Navbar: React.FC = () => {
@@ -11,10 +9,8 @@ const Navbar: React.FC = () => {
         handleModal()
     }
     const handleModal = () => setLogin(prev => !prev);
-    const [isOpen, setIsOpen] = useState(false);
     return (<>
-        <Drawer headerName='My Cart' position={"right"} isOpen={isOpen} onClose={() => setIsOpen(false)} children={<AddToCardDrawer/>}/>
-        {login && <Modal btnTitle="" children={<Login />} closeModal={handleModal} headerTitle={""} modalSize="lg" onSubmit={() => { }} />}
+        
         <div className="header_container sticky top-0 z-20">
             <header className="flex border-b-[1px] h-[86px] bg-white z-10 flex-nowrap w-full relative">
                 <div className="flex items-center w-auto">
