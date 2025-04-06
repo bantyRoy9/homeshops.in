@@ -2,13 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer base {
+  :root {
+    --background:0 0% 100%;
+    --foreground:0 0% 3.9%;
+    --card:0 0% 100%;
+    --card-foreground:0 0% 3.9%;
+    --popover:0 0% 100%;
+    --popover-foreground:0 0% 3.9%;
+    --primary:0 72.2% 50.6%;
+    --primary-foreground:0 85.7% 97.3%;
+    --secondary:0 0% 96.1%;
+    --secondary-foreground:0 0% 9%;
+    --muted:0 0% 96.1%;
+    --muted-foreground:0 0% 45.1%;
+    --accent:0 0% 96.1%;
+    --accent-foreground:0 0% 9%;
+    --destructive:0 84.2% 60.2%;
+    --destructive-foreground:0 0% 98%;
+    --border:0 0% 89.8%;
+    --input:0 0% 89.8%;
+    --ring:0 72.2% 50.6%;
+    --radius:0.5rem;
+    --chart-1:12 76% 61%;
+    --chart-2:173 58% 39%;
+    --chart-3:197 37% 24%;
+    --chart-4:43 74% 66%;
+    --chart-5:27 87% 67%;
+  }
+
+  .dark {
+    --background:0 0% 3.9%;
+    --foreground:0 0% 98%;
+    --card:0 0% 3.9%;
+    --card-foreground:0 0% 98%;
+    --popover:0 0% 3.9%;
+    --popover-foreground:0 0% 98%;
+    --primary:0 72.2% 50.6%;
+    --primary-foreground:0 85.7% 97.3%;
+    --secondary:0 0% 14.9%;
+    --secondary-foreground:0 0% 98%;
+    --muted:0 0% 14.9%;
+    --muted-foreground:0 0% 63.9%;
+    --accent:0 0% 14.9%;
+    --accent-foreground:0 0% 98%;
+    --destructive:0 62.8% 30.6%;
+    --destructive-foreground:0 0% 98%;
+    --border:0 0% 14.9%;
+    --input:0 0% 14.9%;
+    --ring:0 72.2% 50.6%;
+    --chart-1:220 70% 50%;
+    --chart-2:160 60% 45%;
+    --chart-3:30 80% 55%;
+    --chart-4:280 65% 60%;
+    --chart-5:340 75% 55%;
+  }
+}
+
 /* Reset default body styles */
 body {
   @apply m-0 leading-[1.15];
 }
-.home-container{
+
+.home-container {
   @apply max-w-[1260px] m-auto
 }
+
 /* Main container styling */
 .main-container {
   @apply flex flex-col relative h-full bg-white py-3;
@@ -20,17 +80,10 @@ body {
 }
 
 /* Image Grid Container */
-.image-grid-container {
-  @apply max-w-[1280px] mx-auto px-4 bg-transparent overflow-x-hidden;
-}
-
-.image-grid {
-  @apply grid gap-4 grid-cols-[repeat(auto-fill,_minmax(100px,_1fr))];
-}
 
 /* Horizontal Image Slider */
 .horizontal-image-slider {
-  @apply flex gap-4 overflow-x-auto ;
+  @apply flex gap-4 overflow-x-auto;
 }
 
 .horizontal-image-slider::-webkit-scrollbar {
@@ -48,50 +101,64 @@ body {
 
 /* Card styles */
 .card {
-  @apply bg-white rounded-lg max-w-[179px] min-w-[179px] transition-transform duration-200 border-[0.5px] shadow-[2px_2px_8px_rgba(0,0,0,0.04)];
-  text-align: inherit !important;
+  @apply bg-white rounded-lg max-w-[179px] min-w-[179px] transition-transform duration-200 border-[0.5px] shadow-[2px_2px_8px_rgba(0_0_0_0.04)];
+  text-align:inherit !important;
 }
 
-.card-content{
-  @apply flex flex-col px-3 items-center   h-full 
+.card-content {
+  @apply flex flex-col px-3 items-center h-full
 }
-.card-details{
+
+.card-details {
   @apply flex-1 flex flex-col gap-2 w-full
 }
-.card-eta{
+
+.card-eta {
   @apply bg-gray-200 px-1 py-[2px] text-[9px] w-fit rounded-sm font-medium
 }
-.card-titles{
+
+.card-titles {
   @apply flex-1 flex flex-col
 }
-.card-unit{
+
+.card-unit {
   @apply flex-1 text-[14px] mt-1 font-extralight
 }
-.card-title{
+
+.card-title {
   @apply line-clamp-2
 }
-.card-title,.card-price{
+
+.card-title,
+.card-price {
   @apply text-[13px] font-medium
 }
-.card-unit{
+
+.card-unit {
   /* @apply mb-2 */
 }
-.card-footer{
+
+.card-footer {
   @apply flex flex-1 justify-between text-center items-center py-3
 }
-.card-button{
-  @apply px-5 py-2 bg-[rgba(240,253,244,0.5)] border text-[12px] border-green-600 rounded-md text-green-700 font-medium
+
+.card-button {
+  @apply px-5 py-2 bg-[rgba(240_253_244_0.5)] border text-[12px] border-green-600 rounded-md text-green-700 font-medium
 }
+
 /* Product details */
-.horizontal-card-list:has(.slidecard){
+.horizontal-card-list:has(.slidecard) {
   @apply gap-2
 }
-.slidecard{
+
+.slidecard {
   @apply min-w-fit
 }
-.slidecard .card-content{
+
+.slidecard .card-content {
   @apply p-1
 }
+
 /* Section styling */
 .section {
   @apply mt-6 px-4;
@@ -99,10 +166,10 @@ body {
 
 .section-title {
   @apply text-xl font-bold mb-4 text-gray-800;
-  color: rgb(28, 28, 28);
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 32px;
+  color:rgb(28, 28, 28);
+  font-size:24px;
+  font-weight:600;
+  line-height:32px;
 }
 
 /* Banner container */
@@ -116,11 +183,8 @@ img {
 }
 
 @layer components {
-
-  /**** Global Scrollbar CSS Starts ****/
-  /* Width */
   ::-webkit-scrollbar {
-    @apply w-1.5
+    @apply w-1.5;
   }
 
   /* Track */
@@ -131,73 +195,6 @@ img {
   /* Handle */
   ::-webkit-scrollbar-thumb {
     @apply bg-gray-300 rounded-sm
-  }
-
-  /* Handle on hover */
-  /* ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-300
-} */
-
-  /**** Global Scrollbar CSS Endss ****/
-
-  /**** Global Heading Paragraph CSS Starts ****/
-  .heading {
-    @apply mb-2 md:mb-4
-  }
-
-  .heading-sm {
-    @apply font-medium sm:text-xl
-  }
-
-  .heading-md {
-    @apply font-medium sm:text-2xl
-  }
-
-  .heading-lg {
-    @apply font-medium sm:text-3xl
-  }
-
-  /* Heading Light */
-  .heading-sm-light {
-    @apply font-light sm:text-xl
-  }
-
-  .heading-md-light {
-    @apply font-light sm:text-2xl
-  }
-
-  .heading-lg-light {
-    @apply font-light sm:text-3xl
-  }
-
-  /* Heading Semi-Bold */
-  .heading-sm-semibold {
-    @apply font-semibold sm:text-xl
-  }
-
-  .heading-md-semibold {
-    @apply font-semibold sm:text-2xl
-  }
-
-  .heading-lg-semibold {
-    @apply font-semibold sm:text-3xl
-  }
-
-  /* Heading Bold */
-  .heading-sm-bold {
-    @apply font-bold sm:text-xl
-  }
-
-  .heading-md-bold {
-    @apply font-bold sm:text-2xl
-  }
-
-  .heading-lg-bold {
-    @apply font-bold sm:text-3xl
-  }
-
-  .para {
-    @apply mb-2 md:mb-4
   }
 
   .para-xs {
@@ -253,19 +250,6 @@ img {
     @apply h-full w-full object-cover object-center transition duration-200 group-hover:scale-110
   }
 
-  /**** Global Image CSS Ends ****/
-
-  /**** Global List CSS Starts ****/
-  .ul1 {
-    @apply mb-4 list-inside list-disc marker:text-custom-primary-default marker:text-base marker:mr-1 hover:marker:text-custom-primary-dark md:mb-6
-  }
-
-  .li1 {
-    @apply para-sm text-gray-700
-  }
-
-  /**** Global List CSS Ends ****/
-
   /**** Global Button CSS Starts ****/
   .btn {
     @apply rounded-md font-sans font-medium uppercase shadow-md shadow-custom-primary-default/20 transition-all cursor-pointer hover:shadow-lg hover:shadow-custom-primary-default/80 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:shadow-none disabled:cursor-not-allowed disabled:opacity-50
@@ -280,10 +264,6 @@ img {
     @apply rounded-md font-sans font-semibold uppercase transition-all opacity-50 cursor-not-allowed disabled:shadow-none disabled:cursor-not-allowed disabled:opacity-50;
   }
 
-  /* Screen Button */
-  .btn-main {
-    @apply w-full grid grid-cols-4 gap-4
-  }
 
   /* Link Button */
   .btn-xs-link {
@@ -357,10 +337,11 @@ img {
     @apply text-rose-400 border-rose-400 ring-rose-400 focus:border-rose-400 focus:ring-rose-400
   }
 
-  .input-error::placeholder{
+  .input-error::placeholder {
     @apply text-rose-400
   }
-  .input-disabled{
+
+  .input-disabled {
     @apply bg-black cursor-not-allowed
   }
 
@@ -453,164 +434,6 @@ img {
 
   /**** Global Modal CSS Ends ****/
 
-  /**** Global Tabs CSS Starts ****/
-  .tab-active {
-    @apply shrink-0 rounded-t-lg border border-gray-300 border-b-white p-3 para-md text-gray-900
-  }
-
-  .tab-inactive {
-    @apply shrink-0 border border-transparent p-3 para-md text-gray-400 hover:text-gray-700
-  }
-
-  .tabs-inactivebody {
-    @apply mt-2 hidden
-  }
-
-  .tabs-activebody {
-    @apply block pt-1 para-md
-  }
-
-  /* Small Tab */
-  .tab-active2 {
-    @apply flex items-center justify-center shrink-0 rounded-t-lg border border-gray-300 border-b-white p-2 para-xs text-gray-900
-  }
-
-  .tab-inactive2 {
-    @apply shrink-0 border border-transparent p-2 para-xs text-gray-400 hover:text-gray-700
-  }
-
-  .tabs-inactivebody2 {
-    @apply mt-2 hidden
-  }
-
-  .tabs-activebody2 {
-    @apply block pt-1 para-md
-  }
-
-  /**** Global Tabs CSS Ends ****/
-
-  /**** Global Table CSS Starts ****/
-
-  .table-main1 {
-    @apply w-[98%] mx-1 table-fixed rounded-md border border-gray-200 overflow-x-auto;
-  }
-
-  .table-caption1 {
-    @apply caption-top para-sm p-2 italic
-  }
-
-  .table-head1 {
-    @apply bg-gray-100 border-b border-gray-200
-  }
-
-  .table-headth1 {
-    @apply p-3 text-left para-xs-semibold text-gray-500 uppercase tracking-wider;
-  }
-
-  .table-body1 {
-    @apply bg-white divide-y divide-gray-200
-  }
-
-  .table-bodytr1 {
-    @apply rounded-md
-  }
-
-  .table-bodytd1 {
-    @apply flex-1 p-3 text-left para-sm text-gray-800;
-  }
-
-  /* Small Table */
-  .table-main2 {
-    @apply w-[98%] mx-1 table-fixed rounded-md border border-gray-200 overflow-x-auto;
-  }
-
-  .table-caption2 {
-    @apply caption-top para-sm p-2 italic
-  }
-
-  .table-head2 {
-    @apply bg-gray-100 border-b border-gray-200
-  }
-
-  .table-headth2 {
-    @apply p-3 text-left para-xs-semibold text-gray-500 uppercase tracking-wider;
-  }
-
-  .table-body2 {
-    @apply bg-white divide-y divide-gray-200
-  }
-
-  .table-bodytr2 {
-    @apply rounded-md
-  }
-
-  .table-bodytd2 {
-    @apply flex-1 p-3 text-left para-sm text-gray-800;
-  }
-
-  /**** Global Table CSS Ends ****/
-
-  /**** Global Accordion CSS Starts ****/
-  .acc-detailsactive1 {
-    @apply border-t border-b border-custom-primary-default bg-[#f3f4f8] p-2 [&_summary::-webkit-details-marker]:hidden
-  }
-
-  .acc-detailsinactive1 {
-    @apply border-t border-b border-gray-300 bg-gray-50 p-2 hover:bg-[#f3f4f8] [&_summary::-webkit-details-marker]:hidden
-  }
-
-  .acc-summary1 {
-    @apply flex cursor-pointer items-center justify-between px-1 gap-1.5
-  }
-
-  .acc-icon1 {
-    @apply shrink-0 rounded-full text-gray-900
-  }
-
-  .acc-iconsvg1 {
-    @apply size-4 shrink-0 transition duration-300 group-open:-rotate-45
-  }
-
-  .acc-body1 {
-    @apply my-2 border-t border-gray-200
-    /* para-sm text-gray-700 */
-    ;
-  }
-
-
-  /* Small Accordion */
-  .acc-detailsactive2 {
-    @apply w-[12rem] rounded border-t border-b border-custom-primary-default bg-[#f3f4f8] p-2 [&_summary::-webkit-details-marker]:hidden
-  }
-
-  /* add below class name for accordian two position handling*/
-  .acc-detailsinactive2 {
-    @apply w-[12rem] rounded border-t border-b border-gray-200 bg-gray-50 p-2 hover:bg-[#f3f4f8] [&_summary::-webkit-details-marker]:hidden
-  }
-
-  .inactive-accordion2 {
-    @apply h-fit w-48 relative border border-gray-300 rounded bg-gray-50 p-2;
-  }
-
-  .acc-summary2 {
-    @apply flex items-center justify-between px-1 gap-1
-  }
-
-  .acc-icon2 {
-    @apply shrink-0 rounded-full text-gray-900
-  }
-
-  .acc-iconsvg2 {
-    @apply size-3 shrink-0 transition duration-300 group-open:-rotate-45
-  }
-
-  .acc-body2 {
-    @apply h-80 overflow-y-auto overflow-x-hidden
-    /* para-sm text-gray-700 */
-    ;
-  }
-
-  /**** Global Accordion CSS Ends ****/
 
   /**** Global Layout CSS Starts ****/
 
@@ -649,19 +472,6 @@ img {
     @apply order-last sticky bottom-0 w-full h-[7vh] p-2 bg-white
   }
 
-  /* RSB Drawer */
-  .rsb-drawer {
-    @apply flex flex-col relative w-[42vh] h-[91.1vh] bg-white z-50
-  }
-
-  .rsb-body {
-    @apply flex-grow order-first overflow-auto
-  }
-
-  .rsb-footer {
-    @apply order-last sticky bottom-0 w-full h-[7vh] p-2 bg-white
-  }
-
   /**** Global Layout CSS Ends ****/
 
   /**** Global Icon CSS Starts ****/
@@ -677,17 +487,6 @@ img {
     }
   }
 
-  .rsb-icon {
-    @apply size-5 fill-gray-700 hover:fill-gray-900 transition-all duration-200
-  }
-
-  .table-icon {
-    @apply w-5 h-5 fill-custom-primary-default hover:fill-custom-primary-dark transition-all duration-200
-  }
-
-  .tab-icon {
-    @apply w-6 h-6 mb-2 transition-all duration-200
-  }
 
   .btn-icon {
     @apply w-6 h-6 fill-slate-200 hover:fill-white transition-all duration-200
@@ -701,166 +500,64 @@ img {
 
 }
 
-
-
-/*****select styles****/
-
-
-.option-body {
-  background-color: white;
-  margin-top: 5px;
-  box-shadow: 0px 0px 10px 8px rgba(221, 224, 226, 0.8);
-  ;
+.modal-overlay {
+  background-color:rgba(0, 0, 0, 0.7);
+  bottom:0px;
+  left:0px;
+  position:fixed;
+  right:0px;
+  top:0px;
+  z-index:10001;
+  overflow-y:auto;
+  animation:overlayFadeIn 400ms ease;
 }
 
-.option-list {
-  padding: 10px;
-}
-
-.option-list:hover {
-  background-color: #889FA4;
-  color: white;
-}
-
-
-
-.loading.active {
-  display: block;
-}
-
-.loading {
-  display: none;
-}
-
-
-
-.lsbicons {
-  @apply w-12 h-12 rounded bg-white
-}
-
-
-.lls {
-  svg {
-    fill: #069FB1;
-    background-color: white;
-    border-radius: 4px;
-  }
-}
-
-.lls:hover {
-  svg {
-    fill: #069FB1;
-    background-color: white;
-    border-radius: 4px;
-  }
-}
-
-.lg-modal {
-  @apply w-full max-w-4xl;
-}
-
-.md-modal{
-  @apply w-full max-w-[45rem];
-}
-
-.lead-mobile-no .react-international-phone-input:focus {
-  width: 100% !important;
-  outline: none !important;
-}
-
-.form-control {
-  width: 100%;
-  outline: none;
-  border-radius: 5px
-}
-
-.custom_css_agGrid>div {
-  align-content: center;
-}
-
-.custom_css_agGrid:hover {
-  background-color: #F0F0F0 !important;
-}
-
-
-.loading.active {
-  display: block;
-}
-
-.loading {
-  display: none;
-}
-
-/* form container for forms such as signup,profile,settings etc */
-.form-container {
-  @apply grid sm:grid-cols-2 grid-cols-1 gap-x-4
-}
-
-.miscelleous-design .main-section1 {
-  margin-top: 0px !important;
-}
-
-.partnerMapcontainer>#feature {
-  display: none;
-}
-
-#zoomIn_tooltip .react-tooltip-arrow {
-  top:34px !important;
-  right: 8px !important;
-}
-.ag-cell-value:last-child{
-  overflow: visible !important;
- }
-
- .modal-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
-  bottom: 0px;
-  left: 0px;
-  position: fixed;
-  right: 0px;
-  top: 0px;
-  z-index: 10001;
-  overflow-y: auto;
-  animation: overlayFadeIn 400ms ease;
-}
-
-@keyframes overlayFadeIn{
+@keyframes overlayFadeIn {
   0% {
-    background-color: rgba(0, 0, 0, 0);
-    display: none;
+    background-color:rgba(0, 0, 0, 0);
+    display:none;
+  }
+
+  1% {
+    background-color:rgba(0, 0, 0, 0.1);
+    display:block;
+  }
+
+  100% {
+    background-color:rgba(0, 0, 0, 0.7);
+    display:block;
+  }
 }
-1% {
-    background-color: rgba(0, 0, 0, 0.1);
-    display: block;
-}
-100% {
-    background-color: rgba(0, 0, 0, 0.7);
-    display: block;
-}
-}
+
 body:has(.modal-overlay) {
-  overflow: hidden;
+  overflow:hidden;
 }
 
 /* Custom Scrollbar */
 .custom-scrollbar {
   @apply overflow-y-scroll;
 }
+
 .custom-scrollbar-hide::-webkit-scrollbar {
-  display: none;
+  display:none;
 }
+
 .custom-scrollbar::-webkit-scrollbar {
-  width: 8px; /* Adjust scrollbar width */
+  width:8px;
+  /* Adjust scrollbar width */
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  @apply bg-gray-200; /* Track color */
+  @apply bg-gray-200;
+  /* Track color */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-gray-500 rounded-lg; /* Thumb (handle) color */
+  @apply bg-gray-500 rounded-lg;
+  /* Thumb (handle) color */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-700; /* Hover effect */
+  @apply bg-gray-700;
+  /* Hover effect */
 }
