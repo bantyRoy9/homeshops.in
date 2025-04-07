@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { toggleDrawer, toggleModal } from '../Redux/Store.Reducers';
 import { useAddToCart } from '../Utils/customHooks/useAddToCart';
 
 const Navbar: React.FC = () => {
-    const [login, setLogin] = useState(false);
+    const dispatch = useDispatch();
     const {addtocard,calculateTotalMRP,totalProduct} = useAddToCart()
     const handleClick = (e: any) => {
-        e.preventDefault()
-        handleModal()
+        e.preventDefault();
+        dispatch(toggleModal())
     }
-    const handleModal = () => setLogin(prev => !prev);
+
     return (<>
         
         <div className="header_container sticky top-0 z-20">
@@ -40,7 +42,7 @@ const Navbar: React.FC = () => {
                 <div className="flex gap-5 justify-center">
                     <button onClick={handleClick} className="w-[152px] h-full flex items-center justify-center text-[18px] font-normal cursor-pointer hover:bg-neutral-50 transition-colors duration-500">Login</button>
                     <div className="flex items-center">
-                        <button onClick={() => setIsOpen(true)} className="flex bg-green-700 rounded-lg text-white px-4 py-3 items-center gap-2 mr-10">
+                        <button onClick={() => dispatch(toggleDrawer())} className="flex bg-green-700 rounded-lg text-white px-4 py-3 items-center gap-2 mr-10">
                             {(addtocard && Object.keys(addtocard).length) ? <><i className="fa-solid fa-cart-shopping text-[20px]"></i>
                             <div>
                                 <div className="text-[14px] font-extrabold">{totalProduct()} items</div>

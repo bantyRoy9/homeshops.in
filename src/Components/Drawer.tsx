@@ -1,7 +1,8 @@
 import { DrawerProps } from "Utils/Const";
 import { IconClose } from "../Assests/Icons";
 import React from "react";
-const Drawer: React.FC<DrawerProps> = ({ position,headerName, isOpen, onClose, children }) => {
+const Drawer: React.FC<React.PropsWithChildren<DrawerProps>> = ({position,headerName,isOpen,onClose,children}) => {
+
     const drawerClasses = `fixed z-40 w-[22rem] overflow-y-auto transition-transform bg-gray-100
     ${position === "top" && !isOpen && "top-0 left-0 w-full h-80 translate-y-full"}
     ${position === "right" && !isOpen && "top-0 right-0 h-screen w-80 translate-x-full"}

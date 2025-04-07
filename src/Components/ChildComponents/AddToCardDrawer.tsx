@@ -2,11 +2,12 @@ import { imgurl } from '../../Utils/Const'
 import { IconRightArrow } from '../../Assests/Icons'
 import { useAddToCart } from '../../Utils/customHooks/useAddToCart'
 import AddToCartButton from '../Buttons/AddToCartButton'
+import { memo } from 'react'
 
 type Props = {}
 
 const AddToCardDrawer = (props: Props) => {
-    const {addtocard,addProduct,totalProduct,calculateTotalMRP} = useAddToCart();    
+    const {addtocard,addProduct,totalProduct,calculateTotalMRP,handleDrawerClick} = useAddToCart();
     return (addtocard && Object.keys(addtocard).length>0 ?
     <div>
         <div className='m-3 flex flex-col gap-4 h-[84vh] overflow-scroll' >
@@ -47,7 +48,7 @@ const AddToCardDrawer = (props: Props) => {
         </div>
             
             <div className='absolute bottom-0 w-full left-0 right-0 bg-white p-3 pb-4 rounded-t-lg'>
-            <button className='bg-green-700 p-3 w-full rounded-md flex items-center justify-between'>
+            <button className='bg-green-700 p-3 w-full rounded-md flex items-center justify-between' onClick={handleDrawerClick}>
                 <div className='flex flex-col'>
                     <span className='text-white text-primary-heading-md'>₹{calculateTotalMRP(addtocard)}</span>
                     <span className='text-[10px] text-gray-100 font-light'>TOTAL</span>
@@ -60,4 +61,4 @@ const AddToCardDrawer = (props: Props) => {
     )
 }
 
-export default AddToCardDrawer
+export default memo(AddToCardDrawer)

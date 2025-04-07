@@ -11,8 +11,8 @@ export type DrawerProps = {
     position: DrawerPosition;
     isOpen: boolean;
     onClose: () => void;
-    children: any
     headerName:string
+    children?: React.ReactNode
 };
 export interface IProductCard {
   product: IProduct,
@@ -23,20 +23,17 @@ export interface IProductCard {
 }
 
 export interface modalPropsTypes {
-    headerTitle: String;
-    modalSize: 'lgx' | 'lg' | 'md' | 'sm' | 'sm-x' | 'small';
-    btnTitle: string;
-    secBtnTitle?: string;
-    onClick: (isSecBtn?: boolean) => void;
-    onSubmit:(e:React.FormEvent) => void;
-    children: JSX.Element;
-    fontWeight?: string;
-    closeModal: (name?: string) => void;
-    name?: string;
-    subHeaderTitle?: string;
-    className?: string;
-    overflow?:boolean
-    btnVisible?:boolean
+  modalSize: 'lgx' | 'lg' | 'md' | 'sm' | 'sm-x' | 'small';
+  isOpen:boolean
+  header?: String;
+  secBtn?: string;
+  onClick?: (isSecBtn?: boolean) => void;
+  onSubmit?:(e:React.FormEvent) => void;
+  children: JSX.Element;
+  closeModal: (name?: string) => void;
+  name?: string;
+  subHeader?: string;
+  btn?: string;
 };
 
 export interface DropModalTy{

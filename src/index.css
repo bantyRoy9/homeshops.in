@@ -356,11 +356,11 @@ img {
   }
 
   /* Radio Input */
-  .main-box {
-    @apply flex flex-col w-72 md:w-80 p-2;
+  .main-box1 {
+    @apply flex flex-col w-full p-2;
   }
 
-  .label-box {
+  .label-box1 {
     @apply relative flex items-center text-nowrap text-sm font-medium text-gray-500 transition-all duration-200 ease-in-out focus-within:text-custom-primary-default cursor-pointer;
   }
 
@@ -368,11 +368,11 @@ img {
     @apply ml-1 text-sm font-medium text-gray-400 transition-all duration-200 ease-in-out peer-checked:text-custom-primary-default cursor-pointer;
   }
 
-  .label-box.label-error {
+  .label-box1.label-error1 {
     @apply text-rose-400
   }
 
-  .input-main {
+  .input-main1 {
     @apply relative flex flex-row justify-start py-2 gap-4;
   }
 
@@ -507,7 +507,7 @@ img {
   position:fixed;
   right:0px;
   top:0px;
-  z-index:10001;
+  z-index:50;
   overflow-y:auto;
   animation:overlayFadeIn 400ms ease;
 }

@@ -1,19 +1,17 @@
-import Navbar from './Header'
-import React from 'react'
+import { Drawer, Modal } from './../Components'
 import { Outlet } from 'react-router-dom'
 import Footer from './Footer'
-import { Drawer, Modal } from 'Components'
-import { Login } from 'Components/ChildComponents'
-import { useCommonState } from 'Utils/customHooks/useCommonState'
+import Navbar from './Header'
+import { useCommonState } from './../Utils/customHooks/useCommonState'
 
 type Props = {}
 
 const DefaultContainer = (props: Props) => {
-  const {drawer} = useCommonState();
+  const {drawer,modal} = useCommonState();
   return (
     <>
-      <Drawer headerName={drawer.headerName} position={drawer.position} isOpen={drawer.isOpen} onClose={() => drawer.onClose(false)} children={drawer.children}/>
-      {/* <Modal btnTitle="" children={<Login />} closeModal={handleModal} headerTitle={""} modalSize="lg" onSubmit={() => { }} />} */}
+      <Drawer headerName={drawer.headerName} position={drawer.position} isOpen={drawer.isOpen} onClose={drawer.onClose} children={drawer.children}/>
+      <Modal isOpen={modal.isOpen} btn={modal.btn} children={modal.children} closeModal={modal.closeModal} header={modal.header} modalSize={modal.modalSize} onSubmit={() => { }} />
       <Navbar />
       <div className='home-container'>
         <Outlet />

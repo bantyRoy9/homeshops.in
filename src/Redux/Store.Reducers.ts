@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { DrawerProps, modalPropsTypes } from "Utils/Const";
 import buildEPCExtraReducers from "./Store.Builders";
 import { IProduct, TProducts } from "./type";
 export interface IcommonReducer {
-  drawer: any;
-  modal:any
+  drawer: Pick<DrawerProps,'headerName'|'position'|'isOpen'>
+  modal:Omit<modalPropsTypes,'onClick'|'onSubmit'|'children'|'closeModal'>
 }
 
 export type initialStateTy = {
@@ -11,6 +12,7 @@ export type initialStateTy = {
   addtocard: Record<string, IProduct[]>;
   product: IProduct;
   common: IcommonReducer;
+  orders:any
 };
 
 export const initialState: initialStateTy = {
@@ -18,9 +20,17 @@ export const initialState: initialStateTy = {
   addtocard: {},
   product: {} as IProduct,
   common: {
-    drawer: null,
-    modal:null
+    drawer: {
+      headerName:"",
+      isOpen:false,
+      position:"right"
+    },
+    modal:{
+      modalSize:'lg',
+      isOpen:false
+    }
   },
+  orders:[]
 };
 
 const productReducers = {
@@ -48,8 +58,11 @@ const productReducers = {
 };
 
 const commonReducers = {
-  toggleDrawer: (state: initialStateTy,action: PayloadAction<{ open: boolean }>) => {
-    state.common.drawer = action.payload.open;
+  toggleDrawer: (state: initialStateTy) => {
+    state.common.drawer.isOpen = !state.common.drawer.isOpen;
+  },
+  toggleModal: (state: initialStateTy) => {
+    state.common.modal.isOpen = !state.common.modal.isOpen;
   },
 };
 
@@ -63,5 +76,5 @@ const storeDetailSlice = createSlice({
   extraReducers: buildEPCExtraReducers,
 });
 
-export const { addItem, clearCart, toggleDrawer } = storeDetailSlice.actions;
+export const { addItem, clearCart, toggleDrawer,toggleModal } = storeDetailSlice.actions;
 export default storeDetailSlice.reducer;

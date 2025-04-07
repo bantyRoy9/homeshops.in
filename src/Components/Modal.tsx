@@ -2,19 +2,17 @@ import { IconClose } from "../Assests/Icons";
 import { memo } from "react";
 import { FormModalPropsType } from "../Utils/Const";
 
-const FormModal = ({headerTitle,modalSize = "md",btnTitle = "Submit",onSubmit,children,fontWeight = "",closeModal,name = "",className = "",btnVisible = true}: FormModalPropsType) => {
+const FormModal = ({isOpen,header,modalSize = "md",btn = "Submit",onSubmit,children,closeModal,name = ""}: FormModalPropsType) => {
   const renderChildren = () => (
     <>
       <div className="pb-6" style={{ maxHeight: '78vh', overflow: 'auto' }}>
         {children}
       </div>
-      {btnVisible && (
-        <div className="modal-footer">
-          <button className="btn btn-sm-primary" type="submit">
-            {btnTitle}
-          </button>
-        </div>
-      )}
+      <div className="modal-footer">
+        <button className="btn btn-sm-primary" type="submit">
+          {btn}
+        </button>
+      </div>
     </>
   );
 
@@ -29,11 +27,11 @@ const FormModal = ({headerTitle,modalSize = "md",btnTitle = "Submit",onSubmit,ch
   );
 
   return (
-    <div className={`modal-backdrop ${className}`}>
+    <div className={isOpen?`modal-backdrop`:'hidden'}>
       <div className={`main-modal ${modalSize}-modal`}>
         <div className="modal-header">
-          <h3 className={`heading-sm-semibold flex-1 ${fontWeight}`}>
-            {headerTitle}
+          <h3 className={`heading-sm-semibold flex-1`}>
+            {header}
           </h3>
           <button type="button" onClick={() => closeModal(name)}>
             <IconClose />
